@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Quicksand:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 10%;
+    --foreground: 45 100% 96%;
+
+    --card: 230 20% 15%;
+    --card-foreground: 45 100% 96%;
+
+    --popover: 230 20% 15%;
+    --popover-foreground: 45 100% 96%;
+
+    --primary: 45 100% 55%;
+    --primary-foreground: 230 25% 10%;
+
+    --secondary: 260 60% 50%;
+    --secondary-foreground: 45 100% 96%;
+
+    --muted: 230 15% 20%;
+    --muted-foreground: 230 10% 60%;
+
+    --accent: 160 70% 45%;
+    --accent-foreground: 230 25% 10%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 45 100% 96%;
+
+    --border: 230 15% 25%;
+    --input: 230 15% 25%;
+    --ring: 45 100% 55%;
+
+    --radius: 0.75rem;
+
+    --energy-gold: 45 100% 55%;
+    --energy-blue: 210 100% 60%;
+    --energy-green: 140 70% 50%;
+    --energy-red: 0 75% 55%;
+    --energy-purple: 270 70% 60%;
+
+    --hp-player: 140 70% 50%;
+    --hp-enemy: 0 75% 55%;
+
+    --sidebar-background: 230 20% 12%;
+    --sidebar-foreground: 45 100% 96%;
+    --sidebar-primary: 45 100% 55%;
+    --sidebar-primary-foreground: 230 25% 10%;
+    --sidebar-accent: 230 15% 20%;
+    --sidebar-accent-foreground: 45 100% 96%;
+    --sidebar-border: 230 15% 25%;
+    --sidebar-ring: 45 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Cinzel', serif;
+  }
+  .font-body {
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+/* Cinematic flash */
+@keyframes flash {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Game animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px hsl(45 100% 55% / 0.3); }
+  50% { box-shadow: 0 0 30px hsl(45 100% 55% / 0.6), 0 0 60px hsl(45 100% 55% / 0.2); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes attack-right {
+  0% { transform: translateX(0); }
+  40% { transform: translateX(60px) scale(1.1); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes attack-left {
+  0% { transform: translateX(0); }
+  40% { transform: translateX(-60px) scale(1.1); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes damage-flash {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(2) hue-rotate(30deg); }
+}
+
+@keyframes victory-glow {
+  0% { text-shadow: 0 0 10px hsl(45 100% 55% / 0.5); }
+  50% { text-shadow: 0 0 30px hsl(45 100% 55% / 0.8), 0 0 60px hsl(45 100% 55% / 0.4); }
+  100% { text-shadow: 0 0 10px hsl(45 100% 55% / 0.5); }
+}
+
+@keyframes math-symbol-float {
+  0% { opacity: 0; transform: translateY(20px) rotate(0deg); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-100px) rotate(360deg); }
+}
+
+@keyframes head-grow {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); filter: brightness(1); }
+  20% { transform: translate(-3px, 2px); filter: brightness(1.5) hue-rotate(90deg); }
+  40% { transform: translate(3px, -2px); filter: brightness(0.7) hue-rotate(-90deg); }
+  60% { transform: translate(-2px, -3px); filter: brightness(1.3) hue-rotate(45deg); }
+  80% { transform: translate(2px, 3px); filter: brightness(0.8) hue-rotate(-45deg); }
+  100% { transform: translate(0); filter: brightness(1); }
+}
+
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-3px, -2px); }
+  20% { transform: translate(3px, 2px); }
+  30% { transform: translate(-2px, 3px); }
+  40% { transform: translate(2px, -3px); }
+  50% { transform: translate(-3px, 1px); }
+  60% { transform: translate(3px, -1px); }
+  70% { transform: translate(-1px, 3px); }
+  80% { transform: translate(1px, -3px); }
+  90% { transform: translate(-2px, -2px); }
+}
+
+@keyframes float-damage {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-40px) scale(1.3); }
+  100% { opacity: 0; transform: translateY(-80px) scale(0.8); }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 5px hsl(45 100% 55% / 0.3), 0 0 10px hsl(45 100% 55% / 0.1); }
+  50% { box-shadow: 0 0 15px hsl(45 100% 55% / 0.5), 0 0 30px hsl(45 100% 55% / 0.2), 0 0 45px hsl(45 100% 55% / 0.1); }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-shake { animation: shake 0.5s ease-in-out; }
+.animate-attack-right { animation: attack-right 0.5s ease-out; }
+.animate-attack-left { animation: attack-left 0.5s ease-out; }
+.animate-damage-flash { animation: damage-flash 0.3s ease-in-out; }
+.animate-victory-glow { animation: victory-glow 1.5s ease-in-out infinite; }
+.animate-math-float { animation: math-symbol-float 2s ease-out forwards; }
+.animate-head-grow { animation: head-grow 0.8s ease-in-out; }
+.animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+.animate-glitch { animation: glitch 0.5s ease-in-out; }
+.animate-screen-shake { animation: screen-shake 0.3s ease-in-out; }
+.animate-float-damage { animation: float-damage 1.5s ease-out forwards; }
+.animate-neon-pulse { animation: neon-pulse 2s ease-in-out infinite; }
+
+/* Particle effects */
+.math-particle {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: hsl(45 100% 55%);
+  pointer-events: none;
+  animation: math-symbol-float 1.5s ease-out forwards;
+}
+
+/* Gradient backgrounds */
+.bg-battle-arena {
+  background: linear-gradient(180deg, 
+    hsl(230 25% 8%) 0%, 
+    hsl(230 30% 15%) 40%,
+    hsl(260 20% 12%) 100%);
+}
+
+.bg-title-screen {
+  background: radial-gradient(ellipse at center bottom, 
+    hsl(260 40% 20%) 0%, 
+    hsl(230 25% 10%) 70%);
+}
+
+.bg-title-cinematic {
+  background: 
+    radial-gradient(ellipse at 25% 50%, hsl(160 70% 45% / 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 50%, hsl(0 75% 55% / 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, hsl(270 70% 60% / 0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at center bottom, hsl(260 40% 18%) 0%, hsl(230 25% 8%) 70%);
+}
