@@ -1,7 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 
 import {
+  ANA_SELECTION_VIDEO_PATH,
   CHAMPION_SELECTED_EVENT,
+  ELISABETH_SELECTION_VIDEO_PATH,
   emitChampionSelected,
   ENZO_SELECTION_VIDEO_PATH,
   MARIA_ELOISA_SELECTION_VIDEO_PATH,
@@ -12,11 +14,12 @@ import {
 
 describe("champion selection video flow", () => {
   it("returns selection video paths for champions with pick cinematics", () => {
+    expect(getChampionSelectionVideo("ana")).toBe(ANA_SELECTION_VIDEO_PATH);
+    expect(getChampionSelectionVideo("elisabeth")).toBe(ELISABETH_SELECTION_VIDEO_PATH);
     expect(getChampionSelectionVideo("enzo")).toBe(ENZO_SELECTION_VIDEO_PATH);
     expect(getChampionSelectionVideo("mariaHeloisa")).toBe(MARIA_ELOISA_SELECTION_VIDEO_PATH);
     expect(getChampionSelectionVideo("pauloHenrique")).toBe(PAULO_HENRIQUE_SELECTION_VIDEO_PATH);
     expect(getChampionSelectionVideo("valentina")).toBe(VALENTINA_SELECTION_VIDEO_PATH);
-    expect(getChampionSelectionVideo("ana")).toBeNull();
   });
 
   it("dispatches the onChampionSelected event with the selected champion payload", () => {
@@ -48,6 +51,23 @@ describe("champion selection video flow", () => {
     expect(event.detail).toEqual({
       character: "mariaHeloisa",
       videoSrc: MARIA_ELOISA_SELECTION_VIDEO_PATH,
+    });
+
+    window.removeEventListener(CHAMPION_SELECTED_EVENT, listener);
+  });
+
+  it("dispatches Elisabeth's video path in the onChampionSelected payload", () => {
+    const listener = vi.fn();
+
+    window.addEventListener(CHAMPION_SELECTED_EVENT, listener);
+    emitChampionSelected("elisabeth");
+
+    expect(listener).toHaveBeenCalledTimes(1);
+
+    const event = listener.mock.calls[0][0] as CustomEvent;
+    expect(event.detail).toEqual({
+      character: "elisabeth",
+      videoSrc: ELISABETH_SELECTION_VIDEO_PATH,
     });
 
     window.removeEventListener(CHAMPION_SELECTED_EVENT, listener);

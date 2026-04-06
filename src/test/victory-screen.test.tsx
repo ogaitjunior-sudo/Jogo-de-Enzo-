@@ -39,7 +39,7 @@ describe("VictoryScreen", () => {
 
     expect(playVictoryMock).toHaveBeenCalledTimes(1);
 
-    const existingEndingVideo = screen.getByLabelText("Video final da campanha");
+    const existingEndingVideo = screen.getByLabelText("Vídeo final da campanha");
     expect(existingEndingVideo).toBeInTheDocument();
 
     act(() => {
@@ -55,7 +55,7 @@ describe("VictoryScreen", () => {
 
     expect(
       screen.getByText(
-        "Voc\u00EA deseja ver o final ou deseja iniciar novamente a aventura em um outro n\u00EDvel?",
+        "Voc\u00EA deseja ver o final ou iniciar novamente a aventura em outro n\u00EDvel?",
       ),
     ).toBeInTheDocument();
 
@@ -77,7 +77,7 @@ describe("VictoryScreen", () => {
     );
 
     act(() => {
-      fireEvent.ended(screen.getByLabelText("Video final da campanha"));
+      fireEvent.ended(screen.getByLabelText("Vídeo final da campanha"));
     });
 
     await act(async () => {
@@ -87,14 +87,14 @@ describe("VictoryScreen", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "Ver o final" }));
 
-    const bonusFinalVideo = screen.getByLabelText("Video final com a professora e os alunos");
+    const bonusFinalVideo = screen.getByLabelText("Vídeo final com a professora e os alunos");
     expect(bonusFinalVideo).toBeInTheDocument();
 
     act(() => {
       fireEvent.ended(bonusFinalVideo);
     });
 
-    expect(screen.getByRole("heading", { name: /final concluido/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /final concluído/i })).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /voltar ao menu/i }));
     expect(onMenu).toHaveBeenCalledTimes(1);

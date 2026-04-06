@@ -103,7 +103,7 @@ export type StoryScene =
   | StoryEndingScene;
 
 export const STORY_PHASES: ReadonlyArray<{ id: StoryPhaseKey; label: string }> = [
-  { id: "prologue", label: "Prologo" },
+  { id: "prologue", label: "Prólogo" },
   { id: "newton", label: "Fase 1 - Newton" },
   { id: "einstein", label: "Fase 2 - Einstein" },
   { id: "marcela", label: "Fase 3 - Marcela" },
@@ -114,44 +114,44 @@ export const STORY_ROLES: readonly StoryRole[] = [
   {
     id: "strategist",
     name: "Estrategista",
-    title: "Le o caos antes que o caos leia o grupo.",
-    specialty: "Padroes, pistas e escolhas de alto risco.",
-    aura: "Ve conexoes escondidas nos simbolos da reliquia.",
+    title: "Lê o caos antes que o caos leia o grupo.",
+    specialty: "Padrões, pistas e escolhas de alto risco.",
+    aura: "Vê conexões escondidas nos símbolos da relíquia.",
     insightBonus: 2,
     resolveBonus: 0,
   },
   {
     id: "calculator",
     name: "Calculadora Humana",
-    title: "Transforma pressao em conta limpa.",
-    specialty: "Resolve operacoes no ritmo do perigo.",
-    aura: "Manten o time firme quando os numeros aceleram.",
+    title: "Transforma pressão em conta limpa.",
+    specialty: "Resolve operações no ritmo do perigo.",
+    aura: "Mantém o time firme quando os números aceleram.",
     insightBonus: 1,
     resolveBonus: 1,
   },
   {
     id: "sprinter",
-    name: "Rapido Pensador",
+    name: "Pensador Rápido",
     title: "Decide antes que o corredor feche.",
-    specialty: "Resposta rapida sob urgencia total.",
-    aura: "Rompe hesitacao quando segundos decidem destinos.",
+    specialty: "Resposta rápida sob urgência total.",
+    aura: "Rompe a hesitação quando segundos decidem destinos.",
     insightBonus: 0,
     resolveBonus: 2,
   },
   {
     id: "analyst",
     name: "Mestre dos Problemas",
-    title: "Enxerga a falha que ninguem viu.",
+    title: "Enxerga a falha que ninguém viu.",
     specialty: "Analisa erros e corrige o rumo da equipe.",
-    aura: "Consegue desmontar armadilhas pela logica.",
+    aura: "Consegue desmontar armadilhas pela lógica.",
     insightBonus: 2,
     resolveBonus: 0,
   },
   {
     id: "leader",
-    name: "Lider",
+    name: "Líder",
     title: "Segura a equipe quando o medo tenta vencer.",
-    specialty: "Motivacao, ritmo e voz de comando.",
+    specialty: "Motivação, ritmo e voz de comando.",
     aura: "Transforma nervosismo em coragem coletiva.",
     insightBonus: 0,
     resolveBonus: 2,
@@ -161,80 +161,80 @@ export const STORY_ROLES: readonly StoryRole[] = [
 const STORY_CHALLENGES: Record<StoryChallengeId, readonly StoryChallengeVariant[]> = {
   newton: [
     {
-      prompt: "Newton ergue tres aneis de energia e grava no ar: 2^3 + 4. Qual valor quebra o primeiro selo?",
+      prompt: "Newton ergue três anéis de energia e grava no ar: 2^3 + 4. Qual valor quebra o primeiro selo?",
       answer: 12,
-      hint: "Resolva a potencia antes da soma.",
+      hint: "Resolva a potência antes da soma.",
       explanation: "2^3 = 8. Depois, 8 + 4 = 12.",
-      successText: "O primeiro selo estoura e o ginasio inteiro ecoa como metal rachando.",
-      failureText: "Os aneis apertam a arena. Newton percebe a hesitacao e amplia a pressao.",
+      successText: "O primeiro selo estoura e o ginásio inteiro ecoa como metal rachando.",
+      failureText: "Os anéis apertam a arena. Newton percebe a hesitação e amplia a pressão.",
     },
     {
-      prompt: "No centro da quadra, a formula pulsa: 3^2 + 2^3. Qual numero abre caminho ate Newton?",
+      prompt: "No centro da quadra, a fórmula pulsa: 3^2 + 2^3. Qual número abre caminho até Newton?",
       answer: 17,
-      hint: "Calcule cada potencia e depois some os resultados.",
+      hint: "Calcule cada potência e depois some os resultados.",
       explanation: "3^2 = 9 e 2^3 = 8. Somando, o corredor responde com 17.",
-      successText: "As correntes numericas se alinham e a defesa de Newton perde rigidez.",
-      failureText: "A blindagem cresce nas colunas e a quadra fica ainda mais instavel.",
+      successText: "As correntes numéricas se alinham e a defesa de Newton perde rigidez.",
+      failureText: "A blindagem cresce nas colunas e a quadra fica ainda mais instável.",
     },
     {
-      prompt: "A ultima muralha de Newton mostra: (2^4 - 3^2) + 5. Qual valor desmonta o golpe final?",
+      prompt: "A última muralha de Newton mostra: (2^4 - 3^2) + 5. Qual valor desmonta o golpe final?",
       answer: 12,
-      hint: "Primeiro resolva as potencias, depois a subtracao, depois a soma final.",
-      explanation: "2^4 = 16 e 3^2 = 9. 16 - 9 = 7. Com mais 5, o total e 12.",
+      hint: "Primeiro resolva as potências, depois a subtração e, por fim, a soma.",
+      explanation: "2^4 = 16 e 3^2 = 9. 16 - 9 = 7. Com mais 5, o total é 12.",
       successText: "A muralha trinca inteira e Newton recua pela primeira vez desde que despertou.",
-      failureText: "O solo vibra e os circulos de poder se fecham mais perto do Setimo A.",
+      failureText: "O solo vibra e os círculos de poder se fecham mais perto do Sétimo A.",
     },
   ],
   einstein: [
     {
-      prompt: "No labirinto, uma porta so abre com raiz de 81 - 4. Qual resultado acalma o espelho central?",
+      prompt: "No labirinto, uma porta só abre com raiz de 81 - 4. Qual resultado acalma o espelho central?",
       answer: 5,
       hint: "Descubra a raiz quadrada antes de subtrair.",
-      explanation: "A raiz de 81 e 9. Entao 9 - 4 = 5.",
+      explanation: "A raiz de 81 é 9. Então 9 - 4 = 5.",
       successText: "Os espelhos perdem simetria e o labirinto revela uma passagem estreita.",
       failureText: "As paredes se dobram de novo e Einstein muda a rota do grupo.",
     },
     {
-      prompt: "Einstein cria duas saidas falsas. Ambas apontam para raiz de 64 + 6. Qual numero confirma a porta real?",
+      prompt: "Einstein cria duas saídas falsas. Ambas apontam para raiz de 64 + 6. Qual número confirma a porta real?",
       answer: 14,
       hint: "A raiz de 64 vale 8.",
       explanation: "Raiz de 64 = 8. Somando 6, a chave correta fica em 14.",
       successText: "A porta verdadeira vibra em azul e os espelhos falsos se quebram ao redor.",
-      failureText: "O corredor se repete e a equipe perde visao do teto por alguns instantes.",
+      failureText: "O corredor se repete e a equipe perde visão do teto por alguns instantes.",
     },
     {
-      prompt: "No nucleo do labirinto, a conta final aparece: (3^2 + raiz de 36) x 2. Qual resposta desfaz a armadilha?",
+      prompt: "No núcleo do labirinto, a conta final aparece: (3^2 + raiz de 36) × 2. Qual resposta desfaz a armadilha?",
       answer: 30,
       hint: "Resolva 3^2, some com a raiz de 36 e multiplique o resultado por 2.",
-      explanation: "3^2 = 9 e raiz de 36 = 6. 9 + 6 = 15. 15 x 2 = 30.",
+      explanation: "3^2 = 9 e raiz de 36 = 6. 9 + 6 = 15. 15 × 2 = 30.",
       successText: "O labirinto desaba em feixes de luz e Einstein fica sem rotas de fuga.",
-      failureText: "O tempo parece dobrar ao redor do Setimo A e cada passo pesa mais.",
+      failureText: "O tempo parece dobrar ao redor do Sétimo A e cada passo pesa mais.",
     },
   ],
   marcela: [
     {
-      prompt: "A energia da reliquia cruza o peito de Marcela com raiz de 49 + 2^3. Qual valor corta a corrupcao?",
+      prompt: "A energia da relíquia cruza o peito de Marcela com raiz de 49 + 2^3. Qual valor corta a corrupção?",
       answer: 15,
       hint: "Raiz de 49 vale 7 e 2^3 vale 8.",
-      explanation: "7 + 8 = 15. A resposta combina equilibrio e impacto.",
+      explanation: "7 + 8 = 15. A resposta combina equilíbrio e impacto.",
       successText: "A luz dourada falha por um segundo. A voz da professora tenta voltar.",
-      failureText: "A corrupcao aperta mais forte e a voz de Marcela some sob o ruino da reliquia.",
+      failureText: "A corrupção aperta mais forte e a voz de Marcela some sob o ruído da relíquia.",
     },
     {
-      prompt: "Para acorda-la, o Setimo A projeta: (2^3 + raiz de 16) x 2. Qual numero limpa a segunda camada?",
+      prompt: "Para acordá-la, o Sétimo A projeta: (2^3 + raiz de 16) × 2. Qual número limpa a segunda camada?",
       answer: 24,
       hint: "2^3 = 8 e a raiz de 16 = 4.",
-      explanation: "8 + 4 = 12. Multiplicando por 2, a onda correta e 24.",
-      successText: "Os simbolos quebram um a um e Marcela reconhece a propria turma.",
-      failureText: "A sala responde com um clarão e a reliquia tenta isolar o grupo.",
+      explanation: "8 + 4 = 12. Multiplicando por 2, a onda correta é 24.",
+      successText: "Os símbolos quebram um a um e Marcela reconhece a própria turma.",
+      failureText: "A sala responde com um clarão e a relíquia tenta isolar o grupo.",
     },
     {
-      prompt: "No confronto final, a reliquia acende: 3^2 + raiz de 81 + 2^4. Qual valor sela o caos?",
+      prompt: "No confronto final, a relíquia acende: 3^2 + raiz de 81 + 2^4. Qual valor sela o caos?",
       answer: 34,
       hint: "Resolva cada bloco separadamente e some no final.",
       explanation: "3^2 = 9, raiz de 81 = 9 e 2^4 = 16. No total, 34.",
-      successText: "A formula final explode em luz limpa. Marcela se liberta e o controle de Newton se desfaz.",
-      failureText: "A escola treme inteira. Por um instante, parece que o CEAS vai ceder ao silencio.",
+      successText: "A fórmula final explode em luz limpa. Marcela se liberta e o controle de Newton se desfaz.",
+      failureText: "A escola treme inteira. Por um instante, parece que o CEAS vai ceder ao silêncio.",
     },
   ],
 };
@@ -244,58 +244,58 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
     id: "prologue",
     kind: "choice",
     phase: "prologue",
-    chapterLabel: "MODO HISTORIA INICIADO...",
-    title: "A Reliquia de CEAS",
+    chapterLabel: "MODO HISTÓRIA INICIADO...",
+    title: "A Relíquia do CEAS",
     location: "Ala antiga do CEAS",
-    objective: "Escolha como o Setimo A reage ao primeiro colapso da escola.",
-    urgency: "Equacoes estao correndo pelas paredes e portas estao travando em toda a escola.",
-    quote: "\"A matematica nao e abrigo. E poder absoluto.\" Isaac Newton",
+    objective: "Escolha como o Sétimo A reage ao primeiro colapso da escola.",
+    urgency: "Equações estão correndo pelas paredes e portas estão travando em toda a escola.",
+    quote: "\"A matemática não é abrigo. É poder absoluto.\" Isaac Newton",
     choiceKey: "prologue",
     choices: [
       {
         id: "library-first",
         label: "Correr para a ala antiga",
-        description: "Investigar a reliquia antes que o caos se espalhe ainda mais.",
+        description: "Investigar a relíquia antes que o caos se espalhe ainda mais.",
         nextSceneId: "role-select",
         insightDelta: 1,
       },
       {
         id: "protect-corridor",
         label: "Fechar o corredor central",
-        description: "Segurar a passagem para proteger os alunos que ainda estao fugindo.",
+        description: "Segurar a passagem para proteger os alunos que ainda estão fugindo.",
         nextSceneId: "role-select",
         resolveDelta: 1,
       },
       {
         id: "call-the-class",
-        label: "Reunir o Setimo A",
-        description: "Trazer a turma inteira para agir como uma unica equipe.",
+        label: "Reunir o Sétimo A",
+        description: "Trazer a turma inteira para agir como uma única equipe.",
         nextSceneId: "role-select",
         insightDelta: 1,
         resolveDelta: 1,
       },
     ],
     getNarrative: () => [
-      "No silencio do deposito antigo, a professora Marcela afasta uma estante e encontra uma reliquia marcada por potencias, raizes e orbitas numericas.",
-      "Quando seus dedos tocam o metal, um clarao azul atravessa o CEAS. Equacoes surgem nas paredes, fechaduras giram sozinhas e vozes de alunos desaparecem corredor adentro.",
-      "Da fenda de luz, Isaac Newton desperta como uma entidade de calculo absoluto. Logo depois, Albert Einstein nasce do reflexo das janelas quebradas e sorri como se cada segundo estivesse sob seu comando.",
-      "Marcela tenta recuar, mas a reliquia envolve seus pulsos. Seus olhos brilham em dourado. A escola inteira mergulha no caos.",
+      "No silêncio do depósito antigo, a professora Marcela afasta uma estante e encontra uma relíquia marcada por potências, raízes e órbitas numéricas.",
+      "Quando seus dedos tocam o metal, um clarão azul atravessa o CEAS. Equações surgem nas paredes, fechaduras giram sozinhas e vozes de alunos desaparecem corredor adentro.",
+      "Da fenda de luz, Isaac Newton desperta como uma entidade de cálculo absoluto. Logo depois, Albert Einstein nasce do reflexo das janelas quebradas e sorri como se cada segundo estivesse sob seu comando.",
+      "Marcela tenta recuar, mas a relíquia envolve seus pulsos. Seus olhos brilham em dourado. A escola inteira mergulha no caos.",
     ],
   },
   "role-select": {
     id: "role-select",
     kind: "role",
     phase: "prologue",
-    chapterLabel: "Convocacao do Setimo A",
+    chapterLabel: "Convocação do Sétimo A",
     title: "Escolha seu papel na equipe",
-    location: "Patio principal em emergencia",
-    objective: "Defina qual voz do Setimo A vai conduzir a travessia.",
-    urgency: "A turma precisa de uma funcao clara antes de entrar no rastro da reliquia.",
+    location: "Pátio principal em emergência",
+    objective: "Defina qual voz do Sétimo A vai conduzir a travessia.",
+    urgency: "A turma precisa de uma função clara antes de entrar no rastro da relíquia.",
     nextSceneId: "newton-choice",
     getNarrative: () => [
-      "O Setimo A se junta no patio enquanto o CEAS vibra como se a escola tivesse ganhado pulso proprio.",
-      "Cada colega assume um papel. O grupo precisa de alguem para puxar a linha de frente, interpretar os sinais e nao ceder ao medo.",
-      "Quem voce decide ser nessa historia?",
+      "O Sétimo A se junta no pátio enquanto o CEAS vibra como se a escola tivesse ganhado pulso próprio.",
+      "Cada colega assume um papel. O grupo precisa de alguém para puxar a linha de frente, interpretar os sinais e não ceder ao medo.",
+      "Quem você decide ser nesta história?",
     ],
   },
   "newton-choice": {
@@ -304,22 +304,22 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
     phase: "newton",
     chapterLabel: "Fase 1 - Desafio de Isaac Newton",
     title: "A quadra virou um anfiteatro de combate",
-    location: "Ginasio principal",
+    location: "Ginásio principal",
     objective: "Escolha a abordagem antes do primeiro choque direto com Newton.",
-    urgency: "Os aneis de energia estao comprimindo a quadra e o Setimo A precisa abrir espaco.",
-    quote: "\"Se voces nao dominarem a conta, a conta dominara voces.\" Isaac Newton",
+    urgency: "Os anéis de energia estão comprimindo a quadra e o Sétimo A precisa abrir espaço.",
+    quote: "\"Se vocês não dominarem a conta, a conta dominará vocês.\" Isaac Newton",
     choiceKey: "newton",
     choices: [
       {
         id: "read-runes",
-        label: "Ler os aneis antes de atacar",
-        description: "Mapear o padrao numerico da arena para encontrar a falha.",
+        label: "Ler os anéis antes de atacar",
+        description: "Mapear o padrão numérico da arena para encontrar a falha.",
         nextSceneId: "newton-challenge",
         insightDelta: 1,
       },
       {
         id: "break-forward",
-        label: "Avancar e abrir passagem",
+        label: "Avançar e abrir passagem",
         description: "Pressionar Newton antes que a defesa dele feche completamente.",
         nextSceneId: "newton-challenge",
         resolveDelta: 1,
@@ -327,32 +327,32 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
       {
         id: "cover-the-team",
         label: "Cobrir a turma e ganhar tempo",
-        description: "Segurar a linha de frente enquanto os colegas observam a formula do golpe.",
+        description: "Segurar a linha de frente enquanto os colegas observam a fórmula do golpe.",
         nextSceneId: "newton-challenge",
         insightDelta: 1,
         resolveDelta: 1,
       },
     ],
     getNarrative: (progress) => [
-      `Voce entra na quadra com o papel de ${getStoryRoleName(progress.roleId)} e sente o piso vibrar sob os pes.`,
-      "Newton paira acima da cesta central, girando aneis de energia com simbolos de potencia em cada camada.",
-      "A cada segundo, a pressao aumenta. O Setimo A percebe que esse nao e apenas um combate. E um teste de frieza.",
+      `Você entra na quadra com o papel de ${getStoryRoleName(progress.roleId)} e sente o piso vibrar sob os pés.`,
+      "Newton paira acima da cesta central, girando anéis de energia com símbolos de potência em cada camada.",
+      "A cada segundo, a pressão aumenta. O Sétimo A percebe que esse não é apenas um combate. É um teste de frieza.",
     ],
   },
   "newton-challenge": {
     id: "newton-challenge",
     kind: "challenge",
     phase: "newton",
-    chapterLabel: "Confronto logico",
+    chapterLabel: "Confronto lógico",
     title: "Quebre o primeiro selo de Newton",
     location: "Centro da quadra",
-    objective: "Resolver a conta correta para romper a blindagem do primeiro chefao.",
-    urgency: "Se a resposta atrasar, os aneis vao fechar completamente sobre a equipe.",
+    objective: "Resolver a conta correta para romper a blindagem do primeiro chefe.",
+    urgency: "Se a resposta atrasar, os anéis vão fechar completamente sobre a equipe.",
     challengeId: "newton",
     nextSceneId: "newton-aftermath",
     getNarrative: (progress) => [
       getRoleSceneLead(progress.roleId),
-      "O Setimo A fixa os olhos na formula que surge no ar. O resultado certo precisa sair antes do proximo pulso da reliquia.",
+      "O Sétimo A fixa os olhos na fórmula que surge no ar. O resultado certo precisa sair antes do próximo pulso da relíquia.",
     ],
   },
   "newton-aftermath": {
@@ -361,16 +361,16 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
     phase: "newton",
     chapterLabel: "A queda do primeiro tirano",
     title: "Newton recua, mas deixa uma sombra",
-    location: "Arquibancada em ruinas",
-    objective: "Seguir o rastro de energia deixado pelo proximo inimigo.",
-    urgency: "Einstein esta puxando a escola para dentro de um labirinto de espelhos.",
+    location: "Arquibancada em ruínas",
+    objective: "Seguir o rastro de energia deixado pelo próximo inimigo.",
+    urgency: "Einstein está puxando a escola para dentro de um labirinto de espelhos.",
     actionLabel: "Seguir Einstein",
     nextSceneId: "einstein-choice",
-    quote: "\"Velocidade sem direcao e so outra forma de derrota.\" Albert Einstein",
+    quote: "\"Velocidade sem direção é só outra forma de derrota.\" Albert Einstein",
     getNarrative: (progress) => [
       getNewtonAftermathLine(progress.decisions.newton),
-      "Newton perde forma, mas antes de desaparecer empurra a energia da reliquia para os corredores do bloco central.",
-      "Das janelas partidas, Einstein surge sorrindo. O proximo teste nao sera sobre forca. Sera sobre estrategia.",
+      "Newton perde forma, mas antes de desaparecer empurra a energia da relíquia para os corredores do bloco central.",
+      "Das janelas partidas, Einstein surge sorrindo. O próximo teste não será sobre força. Será sobre estratégia.",
     ],
   },
   "einstein-choice": {
@@ -378,39 +378,39 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
     kind: "choice",
     phase: "einstein",
     chapterLabel: "Fase 2 - Labirinto de Albert Einstein",
-    title: "O bloco central virou um quebra-cabeca vivo",
+    title: "O bloco central virou um quebra-cabeça vivo",
     location: "Corredores espelhados",
     objective: "Escolher como atravessar o labirinto antes que a equipe se separe.",
-    urgency: "As paredes estao mudando de lugar e cada erro pode prender alguem para tras.",
-    quote: "\"Quem controla o tempo de resposta controla a queda do adversario.\" Albert Einstein",
+    urgency: "As paredes estão mudando de lugar e cada erro pode prender alguém para trás.",
+    quote: "\"Quem controla o tempo de resposta controla a queda do adversário.\" Albert Einstein",
     choiceKey: "einstein",
     choices: [
       {
         id: "mark-the-floor",
-        label: "Marcar o chao com padroes",
-        description: "Criar referencias visuais para quebrar a ilusao do labirinto.",
+        label: "Marcar o chão com padrões",
+        description: "Criar referências visuais para quebrar a ilusão do labirinto.",
         nextSceneId: "einstein-challenge",
         insightDelta: 1,
       },
       {
         id: "split-in-pairs",
         label: "Dividir a equipe em duplas",
-        description: "Cobrir mais area sem perder o contato entre os colegas.",
+        description: "Cobrir mais área sem perder o contato entre os colegas.",
         nextSceneId: "einstein-challenge",
         resolveDelta: 1,
       },
       {
         id: "bait-einstein",
         label: "Puxar Einstein para o centro",
-        description: "Forcar o inimigo a mostrar a rota verdadeira por arrogancia.",
+        description: "Forçar o inimigo a mostrar a rota verdadeira por arrogância.",
         nextSceneId: "einstein-challenge",
         insightDelta: 1,
         resolveDelta: 1,
       },
     ],
     getNarrative: (progress) => [
-      "Os corredores do CEAS se dobram em angulos impossiveis. O teto reflete o chao. Portas aparecem onde antes havia janelas.",
-      `${getStoryRoleName(progress.roleId)} respira fundo enquanto Einstein mexe no espaco como quem mexe em pecas de xadrez.`,
+      "Os corredores do CEAS se dobram em ângulos impossíveis. O teto reflete o chão. Portas aparecem onde antes havia janelas.",
+      `${getStoryRoleName(progress.roleId)} respira fundo enquanto Einstein mexe no espaço como quem mexe em peças de xadrez.`,
       "Cada passo errado arrasta a turma para um espelho diferente.",
     ],
   },
@@ -419,33 +419,33 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
     kind: "challenge",
     phase: "einstein",
     chapterLabel: "Logica sob manipulação",
-    title: "Encontre a saida verdadeira",
-    location: "Nucleo do labirinto",
-    objective: "Resolver o calculo antes que o corredor se feche de novo.",
-    urgency: "Einstein esta comprimindo o tempo ao redor da equipe.",
+    title: "Encontre a saída verdadeira",
+    location: "Núcleo do labirinto",
+    objective: "Resolver o cálculo antes que o corredor se feche de novo.",
+    urgency: "Einstein está comprimindo o tempo ao redor da equipe.",
     challengeId: "einstein",
     nextSceneId: "einstein-aftermath",
     getNarrative: (progress) => [
       getRoleSceneLead(progress.roleId),
-      "No vidro central, a conta aparece como se fosse o ultimo folego de uma porta prestes a sumir.",
+      "No vidro central, a conta aparece como se fosse o último fôlego de uma porta prestes a sumir.",
     ],
   },
   "einstein-aftermath": {
     id: "einstein-aftermath",
     kind: "message",
     phase: "einstein",
-    chapterLabel: "A estrategia quebra",
+    chapterLabel: "A estratégia quebra",
     title: "Einstein perde o controle do labirinto",
-    location: "Acesso ao laboratorio principal",
-    objective: "Entrar no laboratorio antes que Marcela se perca de vez para a reliquia.",
-    urgency: "A presenca de Marcela esta cada vez mais distante e dolorosa.",
-    actionLabel: "Correr para o laboratorio",
+    location: "Acesso ao laboratório principal",
+    objective: "Entrar no laboratório antes que Marcela se perca de vez para a relíquia.",
+    urgency: "A presença de Marcela está cada vez mais distante e dolorosa.",
+    actionLabel: "Correr para o laboratório",
     nextSceneId: "marcela-choice",
-    quote: "\"Nao deixem que ela me leve embora...\" voz abafada de Marcela",
+    quote: "\"Não deixem que ela me leve embora...\" voz abafada de Marcela",
     getNarrative: (progress) => [
       getEinsteinAftermathLine(progress.decisions.einstein),
       "Einstein tenta rir enquanto os espelhos caem como chuva de vidro e luz.",
-      "Por tras do corredor final, a energia da reliquia pulsa com o nome de Marcela gravado em fogo dourado.",
+      "Por trás do corredor final, a energia da relíquia pulsa com o nome de Marcela gravado em fogo dourado.",
     ],
   },
   "marcela-choice": {
@@ -453,39 +453,39 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
     kind: "choice",
     phase: "marcela",
     chapterLabel: "Fase 3 - Confronto com Marcela",
-    title: "A sala de ciencias virou um santuario corrompido",
-    location: "Laboratorio principal",
-    objective: "Decidir como se aproximar de Marcela sem quebrar o vinculo que ainda resta.",
-    urgency: "A reliquia esta usando as memorias da professora contra a propria turma.",
-    quote: "\"Se voces hesitarem, o CEAS vai esquecer o proprio nome.\" Marcela corrompida",
+    title: "A sala de ciências virou um santuário corrompido",
+    location: "Laboratório principal",
+    objective: "Decidir como se aproximar de Marcela sem quebrar o vínculo que ainda resta.",
+    urgency: "A relíquia está usando as memórias da professora contra a própria turma.",
+    quote: "\"Se vocês hesitarem, o CEAS vai esquecer o próprio nome.\" Marcela corrompida",
     choiceKey: "marcela",
     choices: [
       {
         id: "call-her-name",
         label: "Chamar Marcela pelo nome",
-        description: "Usar a memoria afetiva da turma para atravessar a corrupcao.",
+        description: "Usar a memória afetiva da turma para atravessar a corrupção.",
         nextSceneId: "marcela-challenge",
         resolveDelta: 1,
       },
       {
         id: "project-formula",
-        label: "Projetar a sequencia certa",
-        description: "Usar matematica limpa para ferir a reliquia sem atingir Marcela.",
+        label: "Projetar a sequência certa",
+        description: "Usar matemática limpa para ferir a relíquia sem atingir Marcela.",
         nextSceneId: "marcela-challenge",
         insightDelta: 1,
       },
       {
         id: "speak-as-team",
-        label: "Falar como Setimo A",
-        description: "Lembrar que a professora ensinou cada um deles a nao fugir da dificuldade.",
+        label: "Falar como o Sétimo A",
+        description: "Lembrar que a professora ensinou cada um deles a não fugir da dificuldade.",
         nextSceneId: "marcela-challenge",
         insightDelta: 1,
         resolveDelta: 1,
       },
     ],
     getNarrative: (progress) => [
-      "Tubos de ensaio flutuam no ar. O quadro espalha formulas sozinho. No centro da sala, Marcela luta para respirar sob a luz da reliquia.",
-      `${getStoryRoleName(progress.roleId)} percebe que esse nao e um duelo comum. E um resgate.`,
+      "Tubos de ensaio flutuam no ar. O quadro espalha fórmulas sozinho. No centro da sala, Marcela luta para respirar sob a luz da relíquia.",
+      `${getStoryRoleName(progress.roleId)} percebe que esse não é um duelo comum. É um resgate.`,
       "A turma inteira espera seu comando.",
     ],
   },
@@ -494,56 +494,56 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
     kind: "challenge",
     phase: "marcela",
     chapterLabel: "Resgate emocional",
-    title: "Resolva a formula que rompe a corrupcao",
-    location: "Circulo da reliquia",
-    objective: "Acertar a conta final para libertar Marcela e quebrar o dominio da reliquia.",
+    title: "Resolva a fórmula que rompe a corrupção",
+    location: "Círculo da relíquia",
+    objective: "Acertar a conta final para libertar Marcela e quebrar o domínio da relíquia.",
     urgency: "A escola inteira treme. Se esta resposta falhar, o CEAS pode apagar de vez.",
     challengeId: "marcela",
     nextSceneId: "final-choice",
     getNarrative: (progress) => [
       getRoleSceneLead(progress.roleId),
-      "A formula final acende sobre o peito de Marcela. O numero certo precisa sair agora.",
+      "A fórmula final acende sobre o peito de Marcela. O número certo precisa sair agora.",
     ],
   },
   "final-choice": {
     id: "final-choice",
     kind: "choice",
     phase: "ending",
-    chapterLabel: "A ultima decisao",
-    title: "Marcela voltou. Agora a reliquia precisa cair.",
-    location: "Patio central em colapso",
-    objective: "Escolher a forma final de selar a reliquia e salvar a escola.",
-    urgency: "Newton tenta puxar a energia restante para uma ultima investida.",
-    quote: "\"Nao vamos perder a escola. Nao hoje.\" Professora Marcela",
+    chapterLabel: "A última decisão",
+    title: "Marcela voltou. Agora a relíquia precisa cair.",
+    location: "Pátio central em colapso",
+    objective: "Escolher a forma final de selar a relíquia e salvar a escola.",
+    urgency: "Newton tenta puxar a energia restante para uma última investida.",
+    quote: "\"Não vamos perder a escola. Não hoje.\" Professora Marcela",
     choiceKey: "final",
     choices: [
       {
         id: "seal-with-formula",
-        label: "Selar com a formula final",
-        description: "Fechar a reliquia com precisao matematica e pulso firme.",
+        label: "Selar com a fórmula final",
+        description: "Fechar a relíquia com precisão matemática e pulso firme.",
         nextSceneId: "ending",
         insightDelta: 1,
       },
       {
         id: "channel-the-class",
         label: "Canalizar a energia da turma",
-        description: "Usar a unidade do Setimo A para esmagar a ultima resistencia.",
+        description: "Usar a unidade do Sétimo A para esmagar a última resistência.",
         nextSceneId: "ending",
         resolveDelta: 1,
       },
       {
         id: "face-newton",
-        label: "Mandar Newton encarar a resposta do Setimo A",
-        description: "Confrontar o vilao com a certeza coletiva da equipe.",
+        label: "Mandar Newton encarar a resposta do Sétimo A",
+        description: "Confrontar o vilão com a certeza coletiva da equipe.",
         nextSceneId: "ending",
         insightDelta: 1,
         resolveDelta: 1,
       },
     ],
     getNarrative: () => [
-      "Marcela cai de joelhos, livre, e segura a reliquia com as duas maos enquanto o patio central abre rachaduras de luz.",
-      "Newton tenta surgir uma ultima vez do interior do metal. A escola inteira observa em silencio tenso.",
-      "O Setimo A precisa decidir como termina esta guerra.",
+      "Marcela cai de joelhos, livre, e segura a relíquia com as duas mãos enquanto o pátio central abre rachaduras de luz.",
+      "Newton tenta surgir uma última vez do interior do metal. A escola inteira observa em silêncio tenso.",
+      "O Sétimo A precisa decidir como termina esta guerra.",
     ],
   },
   ending: {
@@ -552,9 +552,9 @@ const STORY_SCENES: Record<StorySceneId, StoryScene> = {
     phase: "ending",
     chapterLabel: "CEAS salvo",
     title: "A escola respira outra vez",
-    location: "Patio central ao amanhecer",
-    objective: "Rever o desfecho da campanha e preparar a proxima expansao do modo Historia.",
-    urgency: "O eco da reliquia ainda existe. Outros capitulos poderao nascer daqui.",
+    location: "Pátio central ao amanhecer",
+    objective: "Rever o desfecho da campanha e preparar a próxima expansão do modo História.",
+    urgency: "O eco da relíquia ainda existe. Outros capítulos poderão nascer daqui.",
     getNarrative: (progress) => getEndingNarrative(progress),
   },
 };
@@ -684,34 +684,34 @@ function getRoleSceneLead(roleId: StoryRoleId | null) {
   const role = getStoryRole(roleId);
 
   if (!role) {
-    return "A equipe procura uma brecha enquanto a escola inteira parece respirar junto com a reliquia.";
+    return "A equipe procura uma brecha enquanto a escola inteira parece respirar junto com a relíquia.";
   }
 
-  return `${role.name} assume a ponta da formacao. ${role.aura}`;
+  return `${role.name} assume a ponta da formação. ${role.aura}`;
 }
 
 function getNewtonAftermathLine(choiceId: string | null) {
   if (choiceId === "read-runes") {
-    return "Voce desmonta a blindagem de Newton ao ler o padrao escondido nos aneis antes do impacto.";
+    return "Você desmonta a blindagem de Newton ao ler o padrão escondido nos anéis antes do impacto.";
   }
 
   if (choiceId === "cover-the-team") {
-    return "Enquanto o Setimo A segurava a linha, a conta certa encontrou uma abertura no centro do caos.";
+    return "Enquanto o Sétimo A segurava a linha, a conta certa encontrou uma abertura no centro do caos.";
   }
 
-  return "A investida do Setimo A quebra a postura absoluta de Newton e prova que a equipe nao vai recuar.";
+  return "A investida do Sétimo A quebra a postura absoluta de Newton e prova que a equipe não vai recuar.";
 }
 
 function getEinsteinAftermathLine(choiceId: string | null) {
   if (choiceId === "mark-the-floor") {
-    return "As marcas no chao cortam a ilusao e fazem o labirinto perder seu dominio perfeito.";
+    return "As marcas no chão cortam a ilusão e fazem o labirinto perder seu domínio perfeito.";
   }
 
   if (choiceId === "split-in-pairs") {
-    return "As duplas seguram a formacao e tiram Einstein da zona de conforto pela primeira vez.";
+    return "As duplas seguram a formação e tiram Einstein da zona de conforto pela primeira vez.";
   }
 
-  return "Ao provocar Einstein no momento certo, o Setimo A força o vilao a mostrar a propria falha.";
+  return "Ao provocar Einstein no momento certo, o Sétimo A força o vilão a mostrar a própria falha.";
 }
 
 function getEndingNarrative(progress: StoryProgress) {
@@ -720,23 +720,23 @@ function getEndingNarrative(progress: StoryProgress) {
   const finalDecision = progress.decisions.final;
   const closingMove =
     finalDecision === "seal-with-formula"
-      ? "A formula final fecha a reliquia com a precisao de uma assinatura impossivel de apagar."
+      ? "A fórmula final fecha a relíquia com a precisão de uma assinatura impossível de apagar."
       : finalDecision === "channel-the-class"
-        ? "A voz coletiva do Setimo A atravessa o patio e transforma coragem em energia limpa."
+        ? "A voz coletiva do Sétimo A atravessa o pátio e transforma coragem em energia limpa."
         : "Newton encara a resposta unida da turma e percebe tarde demais que perdeu o controle do CEAS.";
 
   const performanceLine =
     score >= 12
-      ? "A escola volta ao normal em meio a um amanhecer nitido, como se o CEAS tivesse acabado de respirar pela primeira vez em horas."
+      ? "A escola volta ao normal em meio a um amanhecer nítido, como se o CEAS tivesse acabado de respirar pela primeira vez em horas."
       : score >= 9
-        ? "O caos some aos poucos, mas a escola permanece de pe e a turma sabe que venceu algo enorme."
-        : "Mesmo exaustos, voces seguram o suficiente para salvar a escola e manter a reliquia longe das sombras.";
+        ? "O caos some aos poucos, mas a escola permanece de pé e a turma sabe que venceu algo enorme."
+        : "Mesmo exaustos, vocês seguram o suficiente para salvar a escola e manter a relíquia longe das sombras.";
 
   return [
-    `${role?.name ?? "A equipe"} lidera o ultimo passo ao lado de Marcela, agora livre da corrupcao.`,
+    `${role?.name ?? "A equipe"} lidera o último passo ao lado de Marcela, agora livre da corrupção.`,
     closingMove,
-    "Einstein se desfaz em luz quebrada. Newton tenta resistir por um ultimo segundo, mas a reliquia racha do centro para fora e apaga sua presenca.",
+    "Einstein se desfaz em luz quebrada. Newton tenta resistir por um último segundo, mas a relíquia racha do centro para fora e apaga sua presença.",
     performanceLine,
-    "Marcela encara o Setimo A com os olhos marejados e diz que a escola ainda vai precisar deles. O modo Historia agora esta pronto para crescer em novos capitulos.",
+    "Marcela encara o Sétimo A com os olhos marejados e diz que a escola ainda vai precisar deles. O modo História agora está pronto para crescer em novos capítulos.",
   ];
 }

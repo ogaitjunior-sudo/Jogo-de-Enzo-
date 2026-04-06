@@ -15,7 +15,7 @@ export default function RankingScreen({ onBack }: Props) {
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-4xl flex-col justify-center">
         <div className="mb-8 text-center">
           <p className="text-xs font-body uppercase tracking-[0.35em] text-primary/70">
-            Hall da academia
+            Hall da Academia
           </p>
           <h2 className="mt-3 font-display text-4xl font-black text-primary md:text-5xl">
             Ranking

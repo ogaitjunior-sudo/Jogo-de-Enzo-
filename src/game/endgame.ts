@@ -10,5 +10,5 @@ export const OPTIONAL_FINAL_VIDEO_PATH = getEndGameVideoPath("final_professora_a
 
 export const SAVED_SCHOOL_MESSAGE = "Voc\u00EA salvou a escola.";
 export const FINAL_CHOICE_PROMPT =
-  "Voc\u00EA deseja ver o final ou deseja iniciar novamente a aventura em um outro n\u00EDvel?";
+  "Voc\u00EA deseja ver o final ou iniciar novamente a aventura em outro n\u00EDvel?";
 export const SAVED_SCHOOL_MESSAGE_BEAT_MS = 1400;

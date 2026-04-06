@@ -78,6 +78,26 @@
   .font-body {
     font-family: 'Quicksand', sans-serif;
   }
+  .mobile-panel-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 193, 74, 0.9) rgba(255, 255, 255, 0.08);
+  }
+  .mobile-panel-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  .mobile-panel-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+  }
+  .mobile-panel-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(255, 221, 118, 0.98), rgba(255, 152, 31, 0.94));
+    border-radius: 999px;
+    border: 1px solid rgba(255, 243, 204, 0.45);
+    box-shadow: 0 0 10px rgba(255, 184, 67, 0.35);
+  }
+  .mobile-panel-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(255, 232, 146, 1), rgba(255, 166, 46, 1));
+  }
 }
 
 /* Cinematic flash */

@@ -72,14 +72,19 @@ export default function ChampionSelectionVideoOverlay({
   }
 
   return (
-    <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-[rgba(2,6,18,0.92)] px-4 py-6 backdrop-blur-md">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Vídeo de seleção de ${championName}`}
+      className="fixed inset-0 z-[10000] flex items-center justify-center bg-[rgba(2,6,18,0.92)] px-4 py-6 backdrop-blur-md"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(100,148,255,0.18),transparent_32%),radial-gradient(circle_at_bottom,rgba(255,155,70,0.16),transparent_28%)]" />
 
       <div className="relative z-10 w-full max-w-[34rem] overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,19,41,0.92),rgba(5,11,26,0.96))] shadow-[0_30px_100px_rgba(0,0,0,0.45)]">
         <button
           type="button"
           onClick={onComplete}
-          aria-label="Close champion video"
+          aria-label="Fechar vídeo do campeão"
           className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-slate-950/50 text-white/74 transition-colors hover:border-white/22 hover:text-white"
         >
           <X className="h-5 w-5" />
@@ -87,7 +92,7 @@ export default function ChampionSelectionVideoOverlay({
 
         <div className="border-b border-white/8 px-6 py-5 pr-20">
           <p className="text-[11px] font-body uppercase tracking-[0.32em] text-[#f3cc8c]/76">
-            Champion selection
+            Seleção de campeão
           </p>
           <h3 className="mt-2 font-display text-3xl font-black text-white md:text-4xl">
             {championName}
@@ -100,9 +105,9 @@ export default function ChampionSelectionVideoOverlay({
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-red-300/14 text-red-100">
                 <AlertTriangle className="h-6 w-6" />
               </div>
-              <h4 className="mt-5 font-display text-2xl font-bold text-white">Video unavailable</h4>
+              <h4 className="mt-5 font-display text-2xl font-bold text-white">Vídeo indisponível</h4>
               <p className="mt-3 max-w-xl font-body text-sm leading-7 text-white/72">
-                The selection animation could not be loaded. The player can continue normally to the next screen.
+                A animação de seleção não pôde ser carregada. O jogador pode continuar normalmente para a próxima tela.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Button
@@ -110,7 +115,7 @@ export default function ChampionSelectionVideoOverlay({
                   onClick={onComplete}
                   className="rounded-full bg-white text-slate-950 hover:bg-white/92"
                 >
-                  Continue
+                  Continuar
                 </Button>
                 <Button
                   type="button"
@@ -118,7 +123,7 @@ export default function ChampionSelectionVideoOverlay({
                   onClick={onComplete}
                   className="rounded-full border-white/14 bg-white/5 text-white hover:bg-white/10"
                 >
-                  Close
+                  Fechar
                 </Button>
               </div>
             </div>
@@ -128,6 +133,7 @@ export default function ChampionSelectionVideoOverlay({
                 <video
                   ref={videoRef}
                   src={videoSrc ?? undefined}
+                  aria-label={`Animação de seleção de ${championName}`}
                   autoPlay
                   playsInline
                   preload="auto"
@@ -140,11 +146,11 @@ export default function ChampionSelectionVideoOverlay({
               <div className="mt-5 flex flex-col items-center gap-3 text-center">
                 <div className="space-y-1">
                   <p className="text-sm font-body text-white/72">
-                    The next screen opens automatically when the animation finishes.
+                    A próxima tela abre automaticamente quando a animação terminar.
                   </p>
                   {mutedFallback && (
                     <p className="text-xs font-body uppercase tracking-[0.22em] text-[#f3cc8c]/72">
-                      Autoplay fallback: started muted for browser compatibility.
+                      Reprodução automática: iniciado sem áudio por compatibilidade do navegador.
                     </p>
                   )}
                 </div>
@@ -155,7 +161,7 @@ export default function ChampionSelectionVideoOverlay({
                   className="rounded-full border border-[#f3cc8c]/28 bg-[linear-gradient(180deg,rgba(21,32,74,0.96),rgba(10,18,42,0.98))] px-6 text-white shadow-[0_10px_24px_rgba(0,0,0,0.28)] hover:bg-[linear-gradient(180deg,rgba(26,40,91,0.98),rgba(11,20,47,0.98))]"
                 >
                   <SkipForward className="h-4 w-4" />
-                  Skip
+                  Pular
                 </Button>
               </div>
             </>

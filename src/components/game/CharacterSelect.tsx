@@ -1,14 +1,15 @@
 import ChampionSelectionVideoOverlay from "@/components/game/ChampionSelectionVideoOverlay";
 import { playClick } from "@/game/sounds";
 import {
+  CHAMPION_SELECTED_EVENT,
+  type ChampionSelectedEventDetail,
   emitChampionSelected,
-  getChampionSelectionVideo,
 } from "@/game/champion-selection";
 import { CHARACTER_ORDER, CHARACTER_ROSTER } from "@/game/roster";
 import { Character } from "@/game/types";
 import SelectionBackdrop from "@/components/game/SelectionBackdrop";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   onSelect: (character: Character) => void;
@@ -42,27 +43,33 @@ export default function CharacterSelect({ onSelect, onBack }: Props) {
     onSelect(selectedCharacter);
   };
 
-  // Centralizes the champion-selected event so every selection entry point reuses the same behavior.
-  const onChampionSelected = (selectedCharacter: Character) => {
-    emitChampionSelected(selectedCharacter);
+  useEffect(() => {
+    // Keep the modal event-driven so any selection entry point can reuse the same cinematic flow.
+    const handleChampionSelected = (event: Event) => {
+      const { character, videoSrc } = (event as CustomEvent<ChampionSelectedEventDetail>).detail;
 
-    const videoSrc = getChampionSelectionVideo(selectedCharacter);
+      if (videoSrc) {
+        setSelectionVideo({
+          character,
+          championName: CHARACTER_ROSTER[character].name,
+          videoSrc,
+        });
+        return;
+      }
 
-    if (videoSrc) {
-      setSelectionVideo({
-        character: selectedCharacter,
-        championName: CHARACTER_ROSTER[selectedCharacter].name,
-        videoSrc,
-      });
-      return;
-    }
+      onSelect(character);
+    };
 
-    onSelect(selectedCharacter);
-  };
+    window.addEventListener(CHAMPION_SELECTED_EVENT, handleChampionSelected);
+
+    return () => {
+      window.removeEventListener(CHAMPION_SELECTED_EVENT, handleChampionSelected);
+    };
+  }, [onSelect]);
 
   const selectCurrentCharacter = () => {
     playClick();
-    onChampionSelected(activeProfile.id);
+    emitChampionSelected(activeProfile.id);
   };
 
   return (
@@ -72,10 +79,10 @@ export default function CharacterSelect({ onSelect, onBack }: Props) {
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-2rem)] max-w-6xl flex-col md:min-h-[calc(100svh-2.5rem)]">
         <div className="shrink-0 pt-1 text-center">
           <p className="text-xs font-body uppercase tracking-[0.35em] text-primary/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
-            Escalacao da equipe
+            Escalação da equipe
           </p>
           <h2 className="mt-2 font-display text-3xl font-black text-primary drop-shadow-[0_6px_24px_rgba(0,0,0,0.42)] sm:text-4xl md:text-5xl">
-            Escolha seu heroi
+            Escolha seu herói
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm font-body leading-5 text-white/86 sm:mt-3 sm:max-w-2xl sm:text-base sm:leading-6">
             Navegue pelo elenco e escolha quem vai entrar na arena da academia.
@@ -87,7 +94,7 @@ export default function CharacterSelect({ onSelect, onBack }: Props) {
             <button
               type="button"
               onClick={() => moveCarousel(-1)}
-              aria-label="Heroi anterior"
+              aria-label="Herói anterior"
               className="flex h-11 w-11 flex-none items-center justify-center rounded-full border-2 border-primary/55 bg-[radial-gradient(circle_at_30%_30%,rgba(255,236,173,0.22),rgba(255,236,173,0)_38%),linear-gradient(180deg,rgba(19,28,76,0.92)_0%,rgba(8,12,30,0.9)_100%)] text-primary shadow-[0_0_0_1px_rgba(255,208,92,0.18),0_10px_24px_rgba(0,0,0,0.32)] transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_0_0_1px_rgba(255,208,92,0.3),0_0_18px_rgba(255,196,76,0.22),0_12px_28px_rgba(0,0,0,0.38)] md:h-12 md:w-12"
             >
               <ChevronLeft className="h-4.5 w-4.5 drop-shadow-[0_0_8px_rgba(255,203,92,0.24)] md:h-5 md:w-5" />
@@ -101,7 +108,7 @@ export default function CharacterSelect({ onSelect, onBack }: Props) {
 
                 <div className="relative z-10">
                   <div className="mx-auto inline-flex min-h-6 items-center rounded-full bg-[#111f8a] px-3 py-1 text-[9px] font-body font-bold uppercase tracking-[0.18em] text-white md:min-h-7 md:px-4 md:text-[10px]">
-                    Heroi {activeIndex + 1} de {characterOrder.length}
+                    Herói {activeIndex + 1} de {characterOrder.length}
                   </div>
 
                   <div
@@ -147,7 +154,7 @@ export default function CharacterSelect({ onSelect, onBack }: Props) {
             <button
               type="button"
               onClick={() => moveCarousel(1)}
-              aria-label="Proximo heroi"
+              aria-label="Próximo herói"
               className="flex h-11 w-11 flex-none items-center justify-center rounded-full border-2 border-primary/55 bg-[radial-gradient(circle_at_30%_30%,rgba(255,236,173,0.22),rgba(255,236,173,0)_38%),linear-gradient(180deg,rgba(19,28,76,0.92)_0%,rgba(8,12,30,0.9)_100%)] text-primary shadow-[0_0_0_1px_rgba(255,208,92,0.18),0_10px_24px_rgba(0,0,0,0.32)] transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_0_0_1px_rgba(255,208,92,0.3),0_0_18px_rgba(255,196,76,0.22),0_12px_28px_rgba(0,0,0,0.38)] md:h-12 md:w-12"
             >
               <ChevronRight className="h-4.5 w-4.5 drop-shadow-[0_0_8px_rgba(255,203,92,0.24)] md:h-5 md:w-5" />

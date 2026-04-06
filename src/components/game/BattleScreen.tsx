@@ -44,8 +44,8 @@ import HPBar from "./HPBar";
 
 const attackMessages = {
   correct: [
-    "Golpe de calculo limpo!",
-    "Sequencia perfeita!",
+    "Golpe de cálculo limpo!",
+    "Sequência perfeita!",
     "Resposta precisa!",
     "Ataque exponencial!",
   ],
@@ -53,9 +53,9 @@ const attackMessages = {
     "A conta escapou!",
     "O chefe aproveitou o erro!",
     "Resposta fora do alvo!",
-    "A academia puniu a hesitacao!",
+    "A academia puniu a hesitação!",
   ],
-  critical: ["Acerto critico!", "Resposta devastadora!", "Leitura perfeita!", "Impacto maximo!"],
+  critical: ["Acerto crítico!", "Resposta devastadora!", "Leitura perfeita!", "Impacto máximo!"],
 } as const;
 
 type FeedbackState = {
@@ -859,13 +859,13 @@ export default function BattleScreen({ character, difficulty, onVictory, onDefea
       <div className="fixed inset-0 overflow-hidden bg-battle-arena flex items-center justify-center px-4">
         <div className="text-center animate-slide-up">
           <p className="mb-3 text-xs font-body uppercase tracking-[0.35em] text-primary/70">
-            Proximo desafio
+            Próximo desafio
           </p>
           <div className="mb-4 flex justify-center">
             <div className="rounded-[1.25rem] border border-white/10 bg-slate-950/60 p-2 shadow-[0_18px_36px_rgba(0,0,0,0.22)]">
               <BattleAvatarArtwork
                 src={nextApprentice?.image}
-                alt={nextApprentice?.name ?? "Proximo desafio"}
+                alt={nextApprentice?.name ?? "Próximo desafio"}
                 fallback={nextApprentice?.emoji}
                 frameClassName={enemyPortraitImageClassName}
                 fallbackClassName={enemyPortraitFallbackClassName}
@@ -1043,7 +1043,7 @@ export default function BattleScreen({ character, difficulty, onVictory, onDefea
             <ComboMeter combo={player.combo} />
           ) : (
             <div className="rounded-full border border-white/8 bg-slate-950/30 px-4 py-1.5 text-[11px] font-body uppercase tracking-[0.22em] text-white/52 backdrop-blur-sm">
-              Monte sequencias para ganhar ritmo
+              Monte sequências para ganhar ritmo
             </div>
           )}
         </div>
@@ -1065,7 +1065,7 @@ export default function BattleScreen({ character, difficulty, onVictory, onDefea
           <div className="grid h-full min-h-0 gap-3 md:gap-4 sm:grid-cols-2 xl:grid-cols-[minmax(15rem,1.16fr)_minmax(0,1.08fr)_minmax(13.2rem,1fr)]">
             <div className="order-2 xl:order-1">
               <BattlePortraitCard
-                badge="Heroi"
+                badge="Herói"
                 name={characterProfile.name}
                 title={characterProfile.title}
                 tone="hero"
@@ -1112,11 +1112,11 @@ export default function BattleScreen({ character, difficulty, onVictory, onDefea
 
               <div className="mx-auto grid w-full max-w-[34rem] grid-cols-2 gap-3">
                 <BattleStatCard label="Modo" value={battleConfig.label} />
-                <BattleStatCard label="Pontuacao" value={player.score} tone="score" />
+                <BattleStatCard label="Pontuação" value={player.score} tone="score" />
               </div>
 
               <div className="rounded-full border border-white/10 bg-slate-900/62 px-4 py-1.5 text-[10px] font-body uppercase tracking-[0.24em] text-white/72">
-                {battleConfig.timeLimit !== null ? `Cronometro ${timeLeft}s` : "Sem cronometro"}
+                {battleConfig.timeLimit !== null ? `Cronômetro ${timeLeft}s` : "Sem cronômetro"}
               </div>
             </div>
 
@@ -1158,7 +1158,7 @@ export default function BattleScreen({ character, difficulty, onVictory, onDefea
 
           <div className="mt-3 flex min-h-[60px] items-center justify-center rounded-[1rem] border border-primary/18 bg-[radial-gradient(circle_at_top,rgba(255,185,66,0.14),transparent_45%),linear-gradient(180deg,rgba(24,24,40,0.86)_0%,rgba(17,17,33,0.92)_100%)] px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
             <p className="text-center font-display text-[clamp(1.65rem,4.8vw,2.35rem)] font-black text-primary drop-shadow-[0_0_14px_rgba(245,158,11,0.16)]">
-              {currentQuestion?.question ?? "Sem nova expressao disponivel"}
+              {currentQuestion?.question ?? "Sem nova expressão disponível"}
             </p>
           </div>
 

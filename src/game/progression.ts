@@ -18,57 +18,57 @@ export const ADAPTIVE_PROGRESS_THRESHOLD = 100;
 export const PHASE_CONFIGS: Record<Phase, PhaseConfig> = {
   1: {
     phase: 1,
-    label: "Potenciacao",
-    academyTitle: "Ala das Potencias",
-    description: "Aprenda a dominar expoentes antes de encarar o primeiro guardiao.",
+    label: "Potenciação",
+    academyTitle: "Ala das Potências",
+    description: "Aprenda a dominar expoentes antes de encarar o primeiro guardião.",
     questionType: "potenciacao",
     bossBaseHp: BOSS_ENEMY_HP,
     apprentices: [
-      { name: "Aluno Curioso", title: "Aprendiz de Potencias", baseHp: COMMON_ENEMY_HP, emoji: "📖" },
-      { name: "Monitor de Sala", title: "Guardiao dos Numeros", baseHp: COMMON_ENEMY_HP, emoji: "📝" },
+      { name: "Aluno Curioso", title: "Aprendiz de Potências", baseHp: COMMON_ENEMY_HP, emoji: "📖" },
+      { name: "Monitor de Sala", title: "Guardião dos Números", baseHp: COMMON_ENEMY_HP, emoji: "📝" },
       { name: "Nerd da Turma", title: "Mestre dos Expoentes", baseHp: COMMON_ENEMY_HP, emoji: "🤓" },
     ],
-    transitionLine: "Os radicais tomam o laboratorio central da academia.",
+    transitionLine: "Os radicais tomam o laboratório central da academia.",
     bossRevealLine: "Newton vigia a passagem e cobra fundamento em cada golpe.",
   },
   2: {
     phase: 2,
-    label: "Radiciacao",
-    academyTitle: "Laboratorio dos Radicais",
-    description: "Raizes exatas entram em cena com mais pressao e menos tempo de resposta.",
+    label: "Radiciação",
+    academyTitle: "Laboratório dos Radicais",
+    description: "Raízes exatas entram em cena com mais pressão e menos tempo de resposta.",
     questionType: "radiciacao",
     bossBaseHp: BOSS_ENEMY_HP,
     apprentices: [
-      { name: "Calculadora Humana", title: "Aprendiz de Raizes", baseHp: COMMON_ENEMY_HP, emoji: "🔢" },
-      { name: "Estagiario de Lab", title: "Analista de Radicais", baseHp: COMMON_ENEMY_HP, emoji: "🔬" },
-      { name: "Genio Junior", title: "Quase um Einstein", baseHp: COMMON_ENEMY_HP, emoji: "💡" },
+      { name: "Calculadora Humana", title: "Aprendiz de Raízes", baseHp: COMMON_ENEMY_HP, emoji: "🔢" },
+      { name: "Estagiário de Lab", title: "Analista de Radicais", baseHp: COMMON_ENEMY_HP, emoji: "🔬" },
+      { name: "Gênio Júnior", title: "Quase um Einstein", baseHp: COMMON_ENEMY_HP, emoji: "💡" },
     ],
-    transitionLine: "A sala final abre e mistura todo o conteudo da academia.",
-    bossRevealLine: "Einstein acelera a batalha e pune cada hesitacao.",
+    transitionLine: "A sala final abre e mistura todo o conteúdo da academia.",
+    bossRevealLine: "Einstein acelera a batalha e pune cada hesitação.",
   },
   3: {
     phase: 3,
     label: "Combinadas",
     academyTitle: "Arena Final",
-    description: "Potencias e raizes aparecem juntas. Aqui a leitura rapida faz diferenca.",
+    description: "Potências e raízes aparecem juntas. Aqui a leitura rápida faz diferença.",
     questionType: "combinada",
     bossBaseHp: BOSS_ENEMY_HP,
     apprentices: [
-      { name: "Assistente da Prof", title: "Braco Direito", baseHp: COMMON_ENEMY_HP, emoji: "✏️" },
-      { name: "Representante", title: "Lider de Classe", baseHp: COMMON_ENEMY_HP, emoji: "🎖️" },
-      { name: "Vice-Diretora", title: "Guardia da Academia", baseHp: COMMON_ENEMY_HP, emoji: "🏫" },
+      { name: "Assistente da Prof", title: "Braço Direito", baseHp: COMMON_ENEMY_HP, emoji: "✏️" },
+      { name: "Representante", title: "Líder de Classe", baseHp: COMMON_ENEMY_HP, emoji: "🎖️" },
+      { name: "Vice-Diretora", title: "Guardiã da Academia", baseHp: COMMON_ENEMY_HP, emoji: "🏫" },
     ],
     transitionLine: "A mestra final espera no centro da arena.",
-    bossRevealLine: "Marcela transforma o conteudo inteiro em prova final.",
+    bossRevealLine: "Marcela transforma o conteúdo inteiro em prova final.",
   },
 };
 
 const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
   facil: {
     config: {
-      label: "Facil",
+      label: "Fácil",
       shortLabel: "Passo a passo",
-      description: "Numeros pequenos, leitura direta e ritmo sem pressa para construir confianca.",
+      description: "Números pequenos, leitura direta e ritmo sem pressa para construir confiança.",
       playerHp: 240,
       damageToEnemy: 255,
       damageToPlayer: 6,
@@ -103,7 +103,7 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
       },
       {
         id: "easy_2",
-        label: "Pratica curta",
+        label: "Prática curta",
         tiers: ["basic"],
         maxExponent: 3,
         maxBase: 6,
@@ -137,9 +137,9 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
   },
   medio: {
     config: {
-      label: "Medio",
+      label: "Médio",
       shortLabel: "Ritmo escolar",
-      description: "Numeros pequenos a moderados, duas etapas ocasionais e pressao moderada.",
+      description: "Números pequenos a moderados, duas etapas ocasionais e pressão moderada.",
       playerHp: 200,
       damageToEnemy: 225,
       damageToPlayer: 10,
@@ -190,7 +190,7 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
       },
       {
         id: "medium_3",
-        label: "Combinacao leve",
+        label: "Combinação leve",
         tiers: ["standard", "advanced"],
         maxExponent: 4,
         maxBase: 9,
@@ -208,7 +208,7 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
   },
   dificil: {
     config: {
-      label: "Dificil",
+      label: "Difícil",
       shortLabel: "Desafio forte",
       description: "Mais etapas, mais mistura e menos margem para erro em um ritmo apertado.",
       playerHp: 155,
@@ -229,7 +229,7 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
     bands: [
       {
         id: "hard_1",
-        label: "Atencao",
+        label: "Atenção",
         tiers: ["standard", "advanced"],
         maxExponent: 4,
         maxBase: 10,
@@ -245,7 +245,7 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
       },
       {
         id: "hard_2",
-        label: "Sequencia",
+        label: "Sequência",
         tiers: ["standard", "advanced"],
         maxExponent: 4,
         maxBase: 10,
@@ -295,9 +295,9 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
   },
   impossivel: {
     config: {
-      label: "Impossivel",
+      label: "Impossível",
       shortLabel: "Arena extrema",
-      description: "Alta pressao, mistura constante e pouca margem para hesitar.",
+      description: "Alta pressão, mistura constante e pouca margem para hesitar.",
       playerHp: 120,
       damageToEnemy: 175,
       damageToPlayer: 20,
@@ -332,7 +332,7 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
       },
       {
         id: "impossible_2",
-        label: "Alta pressao",
+        label: "Alta pressão",
         tiers: ["advanced", "master"],
         maxExponent: 5,
         maxBase: 12,
@@ -364,7 +364,7 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
       },
       {
         id: "impossible_4",
-        label: "Densidade maxima",
+        label: "Densidade máxima",
         tiers: ["master"],
         maxExponent: 6,
         maxBase: 12,
@@ -380,7 +380,7 @@ const DIFFICULTY_RULE_SETS: Record<Difficulty, DifficultyRuleSet> = {
       },
       {
         id: "impossible_5",
-        label: "Lendario escolar",
+        label: "Lendário escolar",
         tiers: ["master"],
         maxExponent: 6,
         maxBase: 12,
@@ -422,7 +422,7 @@ export const COMPLEXITY_BANDS: Record<Difficulty, readonly ComplexityBandConfig[
 export const ENDLESS_BATTLE_CONFIG: DifficultyConfig = {
   label: "Infinita",
   shortLabel: "Modo infinito adaptativo",
-  description: "Depois de salvar a escola, a campanha vira um ciclo sem fim com adaptacao total.",
+  description: "Depois de salvar a escola, a campanha vira um ciclo sem fim com adaptação total.",
   playerHp: 170,
   damageToEnemy: 205,
   damageToPlayer: 12,
@@ -567,7 +567,7 @@ export function applyEndlessBandChange(
 }
 
 export function getEndlessDifficultyLabel(level: number): string {
-  return level > ENDLESS_IMPOSSIBLE_CAP ? "Infinita" : "Impossivel";
+  return level > ENDLESS_IMPOSSIBLE_CAP ? "Infinita" : "Impossível";
 }
 
 export function getEndlessBandLabel(level: number): string {
@@ -622,5 +622,5 @@ export function getStageLabel(
 }
 
 export function formatTimeLimit(timeLimit: number | null): string {
-  return timeLimit === null ? "Sem cronometro" : `${timeLimit}s por questao`;
+  return timeLimit === null ? "Sem cronômetro" : `${timeLimit}s por questão`;
 }

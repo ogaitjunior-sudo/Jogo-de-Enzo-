@@ -100,10 +100,10 @@ function EndGameVideoStage({
           <AlertTriangle className="h-7 w-7" />
         </div>
         <h2 className="mt-5 font-display text-3xl font-black text-white sm:text-4xl">
-          Video indisponivel
+          Vídeo indisponível
         </h2>
         <p className="mt-4 max-w-2xl font-body text-sm leading-7 text-white/78 sm:text-base">
-          O video nao foi carregado. O fluxo final continua normalmente para a aventura nao travar.
+          O vídeo não foi carregado. O fluxo final continua normalmente para a aventura não travar.
         </p>
         <button
           type="button"
@@ -145,7 +145,7 @@ function EndGameVideoStage({
         <p className="font-body text-sm text-white/72">{helperText}</p>
         {mutedFallback && (
           <p className="text-xs font-body uppercase tracking-[0.24em] text-primary/72">
-            Autoplay fallback: o video foi iniciado sem audio.
+            Reprodução automática: o vídeo foi iniciado sem áudio.
           </p>
         )}
 
@@ -198,24 +198,24 @@ export default function VictoryScreen({ score, onMenu, onRestartAtDifferentLevel
               Encerramento da aventura
             </p>
             <h1 className="mt-3 font-display text-4xl font-black text-primary animate-victory-glow sm:text-5xl">
-              VITORIA!
+              VITÓRIA!
             </h1>
             <p className="mt-3 font-body text-base text-white/86 sm:text-lg">
-              Voce derrotou o terceiro chefe e concluiu a campanha principal.
+              Você derrotou o terceiro chefe e concluiu a campanha principal.
             </p>
             <p className="mt-2 font-body text-sm text-white/60 sm:text-base">
-              Pontuacao final: <span className="font-bold text-primary">{score}</span>
+              Pontuação final: <span className="font-bold text-primary">{score}</span>
             </p>
           </div>
 
           <div className="p-5 sm:p-6 md:p-8">
             {phase === "ending-video" && (
               <EndGameVideoStage
-                ariaLabel="Video final da campanha"
-                eyebrow="Video final ja implementado"
+                ariaLabel="Vídeo final da campanha"
+                eyebrow="Vídeo final já implementado"
                 title="Encerramento do CEAS"
-                description="Apos a derrota do terceiro chefe, o video final principal da campanha e reproduzido automaticamente."
-                helperText="Quando esse video terminar, a mensagem de escola salva aparece sozinha."
+                description="Após a derrota do terceiro chefe, o vídeo final principal da campanha é reproduzido automaticamente."
+                helperText="Quando esse vídeo terminar, a mensagem de escola salva aparece sozinha."
                 videoSrc={EXISTING_ENDING_VIDEO_PATH}
                 onComplete={beginChoiceSequence}
                 onPlaybackError={() => setHadEndingVideoError(true)}
@@ -238,7 +238,7 @@ export default function VictoryScreen({ score, onMenu, onRestartAtDifferentLevel
                 {hadEndingVideoError && (
                   <div className="mb-5 flex items-center gap-2 rounded-full border border-red-300/16 bg-red-300/10 px-4 py-2 text-sm font-body text-red-100">
                     <AlertTriangle className="h-4 w-4" />
-                    O video de encerramento nao foi carregado, mas a campanha continua normalmente.
+                    O vídeo de encerramento não foi carregado, mas a campanha continua normalmente.
                   </div>
                 )}
 
@@ -274,11 +274,11 @@ export default function VictoryScreen({ score, onMenu, onRestartAtDifferentLevel
 
             {phase === "bonus-video" && (
               <EndGameVideoStage
-                ariaLabel="Video final com a professora e os alunos"
-                eyebrow="Final alternativo configuravel"
+                ariaLabel="Vídeo final com a professora e os alunos"
+                eyebrow="Final alternativo configurável"
                 title="Final da professora e dos alunos"
-                description="Este bloco usa um caminho configuravel para o video extra final, facilitando trocar o arquivo depois sem mexer no fluxo."
-                helperText="Ao terminar, a aventura exibe as acoes finais para voltar ao menu ou recomecar em outro nivel."
+                description="Este bloco usa um caminho configurável para o vídeo extra final, facilitando trocar o arquivo depois sem mexer no fluxo."
+                helperText="Ao terminar, a aventura exibe as ações finais para voltar ao menu ou recomeçar em outro nível."
                 videoSrc={OPTIONAL_FINAL_VIDEO_PATH}
                 onComplete={() => setPhase("post-final-video")}
                 onPlaybackError={() => setHadBonusVideoError(true)}
@@ -291,12 +291,12 @@ export default function VictoryScreen({ score, onMenu, onRestartAtDifferentLevel
                 {hadBonusVideoError && (
                   <div className="mb-5 flex items-center gap-2 rounded-full border border-red-300/16 bg-red-300/10 px-4 py-2 text-sm font-body text-red-100">
                     <AlertTriangle className="h-4 w-4" />
-                    O final extra nao foi encontrado. Basta trocar o arquivo configurado para atualizar esse trecho.
+                    O final extra não foi encontrado. Basta trocar o arquivo configurado para atualizar esse trecho.
                   </div>
                 )}
 
                 <h2 className="font-display text-3xl font-black text-white sm:text-4xl">
-                  Final concluido
+                  Final concluído
                 </h2>
                 <p className="mt-4 max-w-2xl font-body text-sm leading-7 text-white/76 sm:text-base">
                   A escola foi salva e o encerramento completo da campanha terminou.

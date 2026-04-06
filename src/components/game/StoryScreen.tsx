@@ -105,7 +105,7 @@ function PhaseRail({ activePhase }: { activePhase: (typeof STORY_PHASES)[number]
             <div>
               <p className="text-sm font-display font-bold text-white">{phase.label}</p>
               <p className="text-[11px] font-body uppercase tracking-[0.2em] text-white/52">
-                {isCurrent ? "Agora" : isDone ? "Concluido" : "Aguardando"}
+                {isCurrent ? "Agora" : isDone ? "Concluído" : "Aguardando"}
               </p>
             </div>
           </div>
@@ -199,7 +199,7 @@ export default function StoryScreen({ onBack }: Props) {
       setResolution({
         tone: "error",
         title: "Resposta incompleta",
-        body: "Digite um numero valido para estabilizar a formula antes que a energia avance.",
+        body: "Digite um número válido para estabilizar a fórmula antes que a energia avance.",
       });
       return;
     }
@@ -288,8 +288,8 @@ export default function StoryScreen({ onBack }: Props) {
           </div>
 
           <div className="grid gap-3 xl:w-[320px] xl:grid-cols-2">
-            <StoryStatCard label="Insight" value={progress.insight} />
-            <StoryStatCard label="Resolve" value={progress.resolve} />
+            <StoryStatCard label="Percepção" value={progress.insight} />
+            <StoryStatCard label="Determinação" value={progress.resolve} />
             <StoryStatCard label="Acertos" value={progress.correctAnswers} />
             <StoryStatCard label="Risco" value={progress.wrongAnswers} />
           </div>
@@ -300,7 +300,7 @@ export default function StoryScreen({ onBack }: Props) {
             <div className="rounded-[2.1rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,19,41,0.52),rgba(5,11,26,0.84))] p-6 shadow-[0_28px_80px_rgba(0,0,0,0.3)] backdrop-blur-xl md:p-7">
               <div className="rounded-[1.45rem] border border-white/10 bg-white/[0.04] p-5">
                 <p className="text-[11px] font-body uppercase tracking-[0.3em] text-[#f3cc8c]/72">
-                  Tensao imediata
+                  Tensão imediata
                 </p>
                 <p className="mt-3 text-base leading-7 text-white/82">{scene.urgency}</p>
               </div>
@@ -332,14 +332,14 @@ export default function StoryScreen({ onBack }: Props) {
                   )}
                 </div>
                 <div>
-                  <p className="text-[11px] font-body uppercase tracking-[0.26em] text-white/55">Acao atual</p>
+                  <p className="text-[11px] font-body uppercase tracking-[0.26em] text-white/55">Ação atual</p>
                   <h3 className="font-display text-2xl font-bold text-white">
                     {scene.kind === "choice"
-                      ? "Escolha o proximo passo"
+                      ? "Escolha o próximo passo"
                       : scene.kind === "role"
                         ? "Defina o papel do protagonista"
                         : scene.kind === "challenge"
-                          ? "Resolva o desafio matematico"
+                          ? "Resolva o desafio matemático"
                           : scene.kind === "message"
                             ? "Preparar a travessia"
                             : "Campanha concluida"}
@@ -401,7 +401,7 @@ export default function StoryScreen({ onBack }: Props) {
                 <div className="mt-6 space-y-4">
                   <div className="rounded-[1.55rem] border border-[#f0c47c]/20 bg-[#f0c47c]/8 px-5 py-4">
                     <p className="text-[11px] font-body uppercase tracking-[0.24em] text-[#f3cc8c]/80">
-                      Desafio matematico
+                      Desafio matemático
                     </p>
                     <p className="mt-3 font-body text-base leading-7 text-white/84">{activeChallenge.prompt}</p>
                   </div>
@@ -493,7 +493,7 @@ export default function StoryScreen({ onBack }: Props) {
                     className="rounded-full bg-white text-slate-950 hover:bg-white/92"
                   >
                     <RotateCcw className="h-4 w-4" />
-                    Reiniciar historia
+                    Reiniciar história
                   </Button>
                   <Button
                     type="button"
@@ -533,19 +533,19 @@ export default function StoryScreen({ onBack }: Props) {
               <p className="mt-4 font-body text-sm leading-7 text-white/72">
                 {activeRole
                   ? `${activeRole.specialty} ${activeRole.aura}`
-                  : "Escolha um papel para definir quem conduz a narrativa do Setimo A."}
+                  : "Escolha um papel para definir quem conduz a narrativa do Sétimo A."}
               </p>
             </div>
 
             <div className="rounded-[2.1rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,19,41,0.48),rgba(5,11,26,0.84))] p-6 shadow-[0_28px_80px_rgba(0,0,0,0.3)] backdrop-blur-xl">
-              <p className="text-[11px] font-body uppercase tracking-[0.24em] text-white/55">Capitulos</p>
+              <p className="text-[11px] font-body uppercase tracking-[0.24em] text-white/55">Capítulos</p>
               <div className="mt-4">
                 <PhaseRail activePhase={scene.phase} />
               </div>
             </div>
 
             <div className="rounded-[2.1rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,19,41,0.48),rgba(5,11,26,0.84))] p-6 shadow-[0_28px_80px_rgba(0,0,0,0.3)] backdrop-blur-xl">
-              <p className="text-[11px] font-body uppercase tracking-[0.24em] text-white/55">Missao final</p>
+              <p className="text-[11px] font-body uppercase tracking-[0.24em] text-white/55">Missão final</p>
               <div className="mt-4 grid gap-3">
                 {[
                   "Libertar a professora Marcela",
@@ -563,7 +563,7 @@ export default function StoryScreen({ onBack }: Props) {
             <div className="rounded-[2.1rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,19,41,0.48),rgba(5,11,26,0.84))] p-6 shadow-[0_28px_80px_rgba(0,0,0,0.3)] backdrop-blur-xl">
               <p className="text-[11px] font-body uppercase tracking-[0.24em] text-white/55">Leitura da campanha</p>
               <div className="mt-4 grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
-                <StoryStatCard label="Pontuacao narrativa" value={getStoryScore(progress)} />
+                <StoryStatCard label="Pontuação narrativa" value={getStoryScore(progress)} />
                 <StoryStatCard label="Dificuldade atual" value={challengeLevel + 1} />
                 <StoryStatCard label="Turma escolhida" value={activeRole ? activeRole.name : "Pendente"} />
               </div>

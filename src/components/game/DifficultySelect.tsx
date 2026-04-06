@@ -22,7 +22,7 @@ export default function DifficultySelect({ onSelect, onBack }: Props) {
     <div className="relative h-[100svh] overflow-hidden bg-[linear-gradient(180deg,#223f86_0%,#151f45_45%,#0b1020_100%)] px-4 py-4 md:py-5">
       <SelectionBackdrop />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-5xl flex-col">
+      <div className="relative z-10 mx-auto grid h-full max-w-5xl grid-rows-[auto_minmax(0,1fr)_auto] gap-4">
         <div className="shrink-0 pt-1 text-center">
           <p className="text-xs font-body uppercase tracking-[0.35em] text-primary/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
             Ajuste da campanha
@@ -31,13 +31,13 @@ export default function DifficultySelect({ onSelect, onBack }: Props) {
             Escolha a dificuldade
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm font-body leading-6 text-white/86 md:text-base">
-            Facil continua facil ate o fim. Medio continua medio ate o fim. So dificil e
-            impossivel aceleram mais forte quando o jogador domina o conteudo.
+            Fácil continua fácil até o fim. Médio continua médio até o fim. Só difícil e
+            impossível aceleram mais forte quando o jogador domina o conteúdo.
           </p>
         </div>
 
-        <div className="flex flex-1 items-center">
-          <div className="grid w-full gap-3 md:grid-cols-2">
+        <div className="mobile-panel-scrollbar min-h-0 overflow-y-auto pr-1 md:flex md:items-center md:overflow-visible md:pr-0">
+          <div className="grid w-full gap-3 pb-1 md:grid-cols-2">
             {difficultyOrder.map((difficulty) => {
               const config = DIFFICULTY_CONFIGS[difficulty];
 
@@ -70,7 +70,7 @@ export default function DifficultySelect({ onSelect, onBack }: Props) {
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     <div className="rounded-2xl border border-white/12 bg-white/6 px-4 py-3">
                       <p className="text-[10px] font-body uppercase tracking-[0.28em] text-primary/80">
-                        Resistencia
+                        Resistência
                       </p>
                       <p className="mt-1.5 text-sm font-body text-white/88">
                         HP {config.playerHp} · dano recebido {config.damageToPlayer}
@@ -91,7 +91,7 @@ export default function DifficultySelect({ onSelect, onBack }: Props) {
           </div>
         </div>
 
-        <div className="mt-5 shrink-0 text-center">
+        <div className="shrink-0 pb-1 text-center">
           <button
             type="button"
             onClick={() => {
