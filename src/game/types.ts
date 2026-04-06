@@ -2,6 +2,7 @@ export type Character =
   | "ana"
   | "ayla"
   | "elisabeth"
+  | "isabella"
   | "enzo"
   | "mariaHeloisa"
   | "pauloHenrique"

@@ -5,6 +5,7 @@ const CHAMPION_SELECTION_VIDEO_PATHS: Partial<Record<Character, string>> = {
   ana: "/videos/ana.mp4",
   ayla: "/videos/ayla.mp4",
   elisabeth: "/videos/elisabeth.mp4",
+  isabella: "/videos/isabella.mp4",
   enzo: "/videos/enzo_reis.mp4",
   mariaHeloisa: "/videos/maria_eloisa.mp4",
   pauloHenrique: "/videos/paulo_henrique.mp4",
@@ -14,6 +15,7 @@ const CHAMPION_SELECTION_VIDEO_PATHS: Partial<Record<Character, string>> = {
 export const ANA_SELECTION_VIDEO_PATH = CHAMPION_SELECTION_VIDEO_PATHS.ana!;
 export const AYLA_SELECTION_VIDEO_PATH = CHAMPION_SELECTION_VIDEO_PATHS.ayla!;
 export const ELISABETH_SELECTION_VIDEO_PATH = CHAMPION_SELECTION_VIDEO_PATHS.elisabeth!;
+export const ISABELLA_SELECTION_VIDEO_PATH = CHAMPION_SELECTION_VIDEO_PATHS.isabella!;
 export const ENZO_SELECTION_VIDEO_PATH = CHAMPION_SELECTION_VIDEO_PATHS.enzo!;
 export const MARIA_ELOISA_SELECTION_VIDEO_PATH = CHAMPION_SELECTION_VIDEO_PATHS.mariaHeloisa!;
 export const PAULO_HENRIQUE_SELECTION_VIDEO_PATH = CHAMPION_SELECTION_VIDEO_PATHS.pauloHenrique!;

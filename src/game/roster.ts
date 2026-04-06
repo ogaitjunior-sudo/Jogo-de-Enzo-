@@ -2,6 +2,7 @@ import anaImg from "@/assets/ana.png";
 import aylaImg from "@/assets/ayla.png";
 import einsteinImg from "@/assets/einstein.png";
 import elisabethImg from "@/assets/elisabeth.png";
+import isabellaImg from "@/assets/isabella.png";
 import enzoImg from "@/assets/enzo.png";
 import marcelaImg from "@/assets/marcela.png";
 import mariaHeloisaImg from "@/assets/maria-heloisa.png";
@@ -42,6 +43,14 @@ export const CHARACTER_ROSTER: Record<Character, CharacterProfile> = {
     specialty: "Combina potência, raiz e consistência",
     image: elisabethImg,
   },
+  isabella: {
+    id: "isabella",
+    name: "Isabella",
+    title: "Tempestade dos Números",
+    description: "Entra em combate com raciocínio rápido, presença forte e coragem para acelerar as contas.",
+    specialty: "Velocidade mental, combos elétricos e leitura sob pressão",
+    image: isabellaImg,
+  },
   enzo: {
     id: "enzo",
     name: "Enzo Reis",
@@ -80,6 +89,7 @@ export const CHARACTER_ORDER: Character[] = [
   "ana",
   "ayla",
   "elisabeth",
+  "isabella",
   "enzo",
   "mariaHeloisa",
   "pauloHenrique",
