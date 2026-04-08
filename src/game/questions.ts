@@ -160,53 +160,53 @@ const BEGINNER_QUESTION_RULES: Record<Difficulty, Record<QuestionTopic, Beginner
   medio: {
     potenciacao: {
       regular: [
-        createBeginnerBandRule("quadrados 5-8", 5, 8, 0, 1),
-        createBeginnerBandRule("quadrados 9-12", 9, 12, 0, 1),
-        createBeginnerBandRule("quadrados 13-15", 13, 15, 0, 1),
+        createBeginnerBandRule("cubos 2-5", 2, 5, 1, 2),
+        createBeginnerBandRule("cubos 3-5", 3, 5, 1, 2),
+        createBeginnerBandRule("cubos 3-6", 3, 6, 1, 2),
       ],
       boss: [
-        createBeginnerBandRule("boss medio 5-8", 5, 8, 0, 1),
-        createBeginnerBandRule("boss medio 9-12", 9, 12, 0, 1),
-        createBeginnerBandRule("boss medio 13-15", 13, 15, 1, 2),
+        createBeginnerBandRule("boss medio cubos 2-5", 2, 5, 1, 2),
+        createBeginnerBandRule("boss medio cubos 3-6", 3, 6, 1, 2),
+        createBeginnerBandRule("boss medio cubos 4-6", 4, 6, 1, 2),
       ],
       finalBoss: [
-        createBeginnerBandRule("final medio 5-8", 5, 8, 0, 1),
-        createBeginnerBandRule("final medio 9-12", 9, 12, 1, 2),
-        createBeginnerBandRule("final medio 13-15", 13, 15, 1, 2),
+        createBeginnerBandRule("final medio cubos 3-5", 3, 5, 1, 2),
+        createBeginnerBandRule("final medio cubos 4-6", 4, 6, 1, 2),
+        createBeginnerBandRule("final medio cubos 4-7", 4, 7, 1, 2),
       ],
     },
     radiciacao: {
       regular: [
-        createBeginnerBandRule("raizes 5-8", 5, 8, 0, 1),
-        createBeginnerBandRule("raizes 9-12", 9, 12, 0, 1),
-        createBeginnerBandRule("raizes 13-15", 13, 15, 0, 1),
+        createBeginnerBandRule("raizes 6-10", 6, 10, 1, 2),
+        createBeginnerBandRule("raizes 8-12", 8, 12, 1, 2),
+        createBeginnerBandRule("raizes 10-14", 10, 14, 1, 2),
       ],
       boss: [
-        createBeginnerBandRule("boss raiz medio 5-8", 5, 8, 0, 1),
-        createBeginnerBandRule("boss raiz medio 9-12", 9, 12, 0, 1),
-        createBeginnerBandRule("boss raiz medio 13-15", 13, 15, 1, 2),
+        createBeginnerBandRule("boss raiz medio 7-11", 7, 11, 1, 2),
+        createBeginnerBandRule("boss raiz medio 9-13", 9, 13, 1, 2),
+        createBeginnerBandRule("boss raiz medio 11-15", 11, 15, 1, 2),
       ],
       finalBoss: [
-        createBeginnerBandRule("final raiz medio 5-8", 5, 8, 0, 1),
-        createBeginnerBandRule("final raiz medio 9-12", 9, 12, 1, 2),
-        createBeginnerBandRule("final raiz medio 13-15", 13, 15, 1, 2),
+        createBeginnerBandRule("final raiz medio 8-12", 8, 12, 1, 2),
+        createBeginnerBandRule("final raiz medio 10-14", 10, 14, 1, 2),
+        createBeginnerBandRule("final raiz medio 12-16", 12, 16, 1, 2),
       ],
     },
     combinada: {
       regular: [
-        createBeginnerBandRule("mix medio 5-8", 5, 8, 1, 2),
-        createBeginnerBandRule("mix medio 9-12", 9, 12, 1, 2),
-        createBeginnerBandRule("mix medio 13-15", 13, 15, 1, 2),
+        createBeginnerBandRule("mix medio 2-5", 2, 5, 1, 2),
+        createBeginnerBandRule("mix medio 3-5", 3, 5, 1, 2),
+        createBeginnerBandRule("mix medio 3-6", 3, 6, 1, 2),
       ],
       boss: [
-        createBeginnerBandRule("mix boss medio 5-8", 5, 8, 1, 2),
-        createBeginnerBandRule("mix boss medio 9-12", 9, 12, 1, 2),
-        createBeginnerBandRule("mix boss medio 13-15", 13, 15, 1, 2),
+        createBeginnerBandRule("mix boss medio 2-5", 2, 5, 1, 2),
+        createBeginnerBandRule("mix boss medio 3-6", 3, 6, 1, 2),
+        createBeginnerBandRule("mix boss medio 4-6", 4, 6, 1, 2),
       ],
       finalBoss: [
-        createBeginnerBandRule("mix final medio 5-8", 5, 8, 1, 2),
-        createBeginnerBandRule("mix final medio 9-12", 9, 12, 1, 2),
-        createBeginnerBandRule("mix final medio 13-15", 13, 15, 1, 2),
+        createBeginnerBandRule("mix final medio 3-5", 3, 5, 1, 2),
+        createBeginnerBandRule("mix final medio 4-6", 4, 6, 1, 2),
+        createBeginnerBandRule("mix final medio 4-7", 4, 7, 1, 2),
       ],
     },
   },
@@ -815,6 +815,27 @@ function createSquareTerm(base: number): ExpressionTerm {
   };
 }
 
+function createDifficultyPowerOperandTerm(
+  base: number,
+  difficulty: Difficulty,
+): ExpressionTerm {
+  const exponent = difficulty === "medio" ? 3 : 2;
+
+  return {
+    text: `${base}${superscript(exponent)}`,
+    value: Math.pow(base, exponent),
+  };
+}
+
+function createMediumDirectPowerTerms(base: number, maxAnswerAbs: number): ExpressionTerm[] {
+  return [3, 4]
+    .map((exponent) => ({
+      text: `${base}${superscript(exponent)}`,
+      value: Math.pow(base, exponent),
+    }))
+    .filter((term) => term.value <= maxAnswerAbs);
+}
+
 function createRootOperandTerm(operand: number): ExpressionTerm {
   return {
     text: `√${operand * operand}`,
@@ -944,7 +965,7 @@ function isDirectOnlyContext(
     return true;
   }
 
-  if (difficulty === "medio" && (topic === "potenciacao" || topic === "radiciacao")) {
+  if (difficulty === "medio" && topic === "potenciacao") {
     return true;
   }
 
@@ -955,6 +976,7 @@ function buildPotentiationQuestionPool(
   rule: BeginnerBandRule,
   phase: Phase,
   difficulty: Difficulty,
+  maxAnswerAbs: number,
   context: QuestionSelectionContext,
 ): MathQuestion[] {
   const pool = new Map<string, MathQuestion>();
@@ -963,15 +985,22 @@ function buildPotentiationQuestionPool(
   const directOnly = isDirectOnlyContext(difficulty, phase);
 
   for (const operand of operands) {
-    const term = createSquareTerm(operand);
+    if (difficulty === "medio") {
+      for (const term of createMediumDirectPowerTerms(operand, maxAnswerAbs)) {
+        addQuestionToPool(pool, phase, term.text, term.value);
+      }
+      continue;
+    }
+
+    const term = createDifficultyPowerOperandTerm(operand, difficulty);
     addQuestionToPool(pool, phase, term.text, term.value);
   }
 
   if (!directOnly && rule.maxOperations >= 1) {
     for (const leftOperand of expressionOperands) {
       for (const rightOperand of expressionOperands.filter((value) => value <= leftOperand)) {
-        const left = createSquareTerm(leftOperand);
-        const right = createSquareTerm(rightOperand);
+        const left = createDifficultyPowerOperandTerm(leftOperand, difficulty);
+        const right = createDifficultyPowerOperandTerm(rightOperand, difficulty);
 
         addQuestionToPool(pool, phase, `${left.text} + ${right.text}`, left.value + right.value);
 
@@ -986,9 +1015,9 @@ function buildPotentiationQuestionPool(
     for (const firstOperand of expressionOperands) {
       for (const secondOperand of expressionOperands.filter((value) => value <= firstOperand)) {
         for (const thirdOperand of expressionOperands.filter((value) => value < secondOperand)) {
-          const first = createSquareTerm(firstOperand);
-          const second = createSquareTerm(secondOperand);
-          const third = createSquareTerm(thirdOperand);
+          const first = createDifficultyPowerOperandTerm(firstOperand, difficulty);
+          const second = createDifficultyPowerOperandTerm(secondOperand, difficulty);
+          const third = createDifficultyPowerOperandTerm(thirdOperand, difficulty);
           addQuestionToPool(
             pool,
             phase,
@@ -1126,6 +1155,7 @@ function buildRadicationQuestionPool(
 function buildCombinedQuestionPool(
   rule: BeginnerBandRule,
   phase: Phase,
+  difficulty: Difficulty,
 ): MathQuestion[] {
   const pool = new Map<string, MathQuestion>();
   const operands = getOperandValues(rule);
@@ -1133,7 +1163,7 @@ function buildCombinedQuestionPool(
 
   for (const powerOperand of expressionOperands) {
     for (const rootOperand of expressionOperands) {
-      const power = createSquareTerm(powerOperand);
+      const power = createDifficultyPowerOperandTerm(powerOperand, difficulty);
       const root = createRootOperandTerm(rootOperand);
 
       addQuestionToPool(pool, phase, `${power.text} + ${root.text}`, power.value + root.value);
@@ -1152,9 +1182,9 @@ function buildCombinedQuestionPool(
     for (const firstOperand of expressionOperands) {
       for (const secondOperand of expressionOperands.filter((value) => value <= firstOperand)) {
         for (const thirdOperand of expressionOperands.filter((value) => value < secondOperand)) {
-          const power = createSquareTerm(firstOperand);
+          const power = createDifficultyPowerOperandTerm(firstOperand, difficulty);
           const root = createRootOperandTerm(secondOperand);
-          const tail = createSquareTerm(thirdOperand);
+          const tail = createDifficultyPowerOperandTerm(thirdOperand, difficulty);
           addQuestionToPool(
             pool,
             phase,
@@ -1170,7 +1200,7 @@ function buildCombinedQuestionPool(
     for (const firstOperand of expressionOperands) {
       for (const secondOperand of expressionOperands.filter((value) => value <= firstOperand)) {
         for (const thirdOperand of expressionOperands.filter((value) => value <= secondOperand)) {
-          const power = createSquareTerm(firstOperand);
+          const power = createDifficultyPowerOperandTerm(firstOperand, difficulty);
           const root = createRootOperandTerm(secondOperand);
           const tail = createRootOperandTerm(thirdOperand);
           addQuestionToPool(
@@ -1195,24 +1225,26 @@ function buildRuleBasedQuestionPool(
 ): MathQuestion[] {
   const rule = getBeginnerBandRule(difficulty, phase, band, context);
   const topic = PHASE_CONFIGS[phase].questionType;
+  const bandConfig = getComplexityBandConfig(difficulty, band);
 
   if (topic === "potenciacao") {
-    return buildPotentiationQuestionPool(rule, phase, difficulty, context);
+    return buildPotentiationQuestionPool(rule, phase, difficulty, bandConfig.maxAnswerAbs, context);
   }
 
   if (topic === "radiciacao") {
     return buildRadicationQuestionPool(rule, phase, difficulty, context);
   }
 
-  return buildCombinedQuestionPool(rule, phase);
+  return buildCombinedQuestionPool(rule, phase, difficulty);
 }
 
 function buildInfiniteQuestionPool(phase: Phase, level: number): MathQuestion[] {
   const topic = PHASE_CONFIGS[phase].questionType;
   const rule = getInfiniteBandRule(level, topic);
+  const bandConfig = getEndlessComplexityBandConfig(level);
 
   if (topic === "potenciacao") {
-    return buildPotentiationQuestionPool(rule, phase, "impossivel", {
+    return buildPotentiationQuestionPool(rule, phase, "impossivel", bandConfig.maxAnswerAbs, {
       battleStage: "apprentice",
       isBoss: false,
       isFinalBoss: false,
@@ -1227,7 +1259,7 @@ function buildInfiniteQuestionPool(phase: Phase, level: number): MathQuestion[] 
     });
   }
 
-  return buildCombinedQuestionPool(rule, phase);
+  return buildCombinedQuestionPool(rule, phase, "impossivel");
 }
 
 function createDynamicQuestion(
@@ -1516,6 +1548,19 @@ function createQuestionSourceKey(
   return `phase:${phase}|difficulty:${difficulty}|band:${band}|stage:${context.battleStage}|boss:${context.isBoss}|final:${context.isFinalBoss}`;
 }
 
+export function createQuestionCycleKey(
+  phase: Phase,
+  difficulty: Difficulty,
+  band: number,
+  context: QuestionSelectionContext,
+): string {
+  if (difficulty === "medio") {
+    return `phase:${phase}|difficulty:${difficulty}`;
+  }
+
+  return createQuestionSourceKey(phase, difficulty, band, context);
+}
+
 function createEndlessQuestionSourceKey(phase: Phase, level: number): string {
   return `endless|phase:${phase}|level:${level}`;
 }
@@ -1534,7 +1579,7 @@ function getCachedQuestionPool(sourceKey: string, builder: () => MathQuestion[])
 
 export function createQuestionCycleState(): QuestionCycleState {
   return {
-    sourceKey: null,
+    cycleKey: null,
     usedKeys: [],
     lastQuestionKey: null,
     recentValues: [],
@@ -1544,14 +1589,14 @@ export function createQuestionCycleState(): QuestionCycleState {
 
 function drawQuestionFromPool(
   pool: readonly MathQuestion[],
-  sourceKey: string,
+  cycleKey: string,
   state: QuestionCycleState,
 ): QuestionDrawResult {
   const activeState =
-    state.sourceKey === sourceKey
+    state.cycleKey === cycleKey
       ? state
       : {
-          sourceKey,
+          cycleKey,
           usedKeys: [],
           lastQuestionKey: null,
           recentValues: [],
@@ -1603,7 +1648,7 @@ function drawQuestionFromPool(
   return {
     question: selectedQuestion,
     state: {
-      sourceKey,
+      cycleKey,
       usedKeys: [...usedKeys],
       lastQuestionKey: questionKey,
       recentValues: getQuestionValues(selectedQuestion),
@@ -1620,16 +1665,17 @@ export function drawNextQuestionForPhase(
   state: QuestionCycleState,
 ): QuestionDrawResult {
   const sourceKey = createQuestionSourceKey(phase, difficulty, band, context);
+  const cycleKey = createQuestionCycleKey(phase, difficulty, band, context);
   const rulePool = getCachedQuestionPool(sourceKey, () =>
     buildRuleBasedQuestionPool(phase, difficulty, band, context),
   );
 
   if (rulePool.length > 0) {
-    return drawQuestionFromPool(rulePool, sourceKey, state);
+    return drawQuestionFromPool(rulePool, cycleKey, state);
   }
 
   const legacyPool = getQuestionsForPhase(phase, difficulty, band, new Set<string>(), context);
-  return drawQuestionFromPool(legacyPool, sourceKey, state);
+  return drawQuestionFromPool(legacyPool, cycleKey, state);
 }
 
 export function drawNextQuestionForEndlessPhase(

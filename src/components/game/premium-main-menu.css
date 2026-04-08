@@ -355,8 +355,8 @@
 }
 
 .premium-main-menu__button--primary .premium-main-menu__button-label {
-  font-size: clamp(1.25rem, 3.4vw, 1.68rem);
-  letter-spacing: 0.05em;
+  font-size: clamp(1.08rem, 3vw, 1.42rem);
+  letter-spacing: 0.04em;
   color: #fffef8;
   text-shadow:
     0 1px 0 rgba(255, 252, 234, 0.96),
@@ -413,8 +413,8 @@
 }
 
 .premium-main-menu__button--secondary .premium-main-menu__button-label {
-  font-size: clamp(0.9rem, 2.4vw, 1.08rem);
-  letter-spacing: 0.03em;
+  font-size: clamp(0.82rem, 2.15vw, 0.96rem);
+  letter-spacing: 0.025em;
   color: #f8fbff;
   text-shadow:
     0 2px 0 rgba(16, 55, 161, 0.64),
@@ -530,7 +530,7 @@
   }
 
   .premium-main-menu__button--primary .premium-main-menu__button-label {
-    font-size: 1.08rem;
+    font-size: 0.98rem;
   }
 
   .premium-main-menu__button--secondary {
@@ -538,7 +538,7 @@
   }
 
   .premium-main-menu__button--secondary .premium-main-menu__button-label {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
   }
 }
 

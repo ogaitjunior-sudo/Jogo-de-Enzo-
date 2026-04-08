@@ -152,7 +152,7 @@ export interface QuestionSelectionContext {
 }
 
 export interface QuestionCycleState {
-  sourceKey: string | null;
+  cycleKey: string | null;
   usedKeys: readonly string[];
   lastQuestionKey: string | null;
   recentValues: readonly number[];

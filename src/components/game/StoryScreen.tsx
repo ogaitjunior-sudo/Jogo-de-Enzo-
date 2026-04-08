@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
 import {
   AlertTriangle,
   ArrowRight,
@@ -66,6 +66,45 @@ const phaseIcons: Record<(typeof STORY_PHASES)[number]["id"], LucideIcon> = {
   marcela: Crown,
   ending: CheckCircle2,
 };
+
+const SUPERSCRIPT_TO_NORMAL: Record<string, string> = {
+  "⁰": "0",
+  "¹": "1",
+  "²": "2",
+  "³": "3",
+  "⁴": "4",
+  "⁵": "5",
+  "⁶": "6",
+  "⁷": "7",
+  "⁸": "8",
+  "⁹": "9",
+};
+
+const SUPERSCRIPT_PATTERN = /([⁰¹²³⁴⁵⁶⁷⁸⁹]+)/g;
+const SUPERSCRIPT_ONLY_PATTERN = /^[⁰¹²³⁴⁵⁶⁷⁸⁹]+$/;
+
+function renderStoryMathText(text: string): ReactNode {
+  return text.split(SUPERSCRIPT_PATTERN).map((segment, index) => {
+    if (!segment) {
+      return null;
+    }
+
+    if (SUPERSCRIPT_ONLY_PATTERN.test(segment)) {
+      const value = segment
+        .split("")
+        .map((char) => SUPERSCRIPT_TO_NORMAL[char] ?? char)
+        .join("");
+
+      return (
+        <sup key={`sup-${index}-${value}`} className="text-[0.98em] font-black leading-none text-[#ffe7bf]">
+          {value}
+        </sup>
+      );
+    }
+
+    return <span key={`text-${index}`}>{segment}</span>;
+  });
+}
 
 function PhaseRail({ activePhase }: { activePhase: (typeof STORY_PHASES)[number]["id"] }) {
   const activeIndex = STORY_PHASES.findIndex((phase) => phase.id === activePhase);
@@ -403,7 +442,9 @@ export default function StoryScreen({ onBack }: Props) {
                     <p className="text-[11px] font-body uppercase tracking-[0.24em] text-[#f3cc8c]/80">
                       Desafio matemático
                     </p>
-                    <p className="mt-3 font-body text-base leading-7 text-white/84">{activeChallenge.prompt}</p>
+                    <p className="mt-3 font-body text-base leading-7 text-white/84">
+                      {renderStoryMathText(activeChallenge.prompt)}
+                    </p>
                   </div>
 
                   <form className="grid gap-3 sm:grid-cols-[1fr_auto]" onSubmit={handleChallengeSubmit}>
@@ -453,7 +494,9 @@ export default function StoryScreen({ onBack }: Props) {
                           <h4 className="font-display text-xl font-bold text-white">{resolution.title}</h4>
                           <p className="mt-2 font-body text-sm leading-6 text-white/78">{resolution.body}</p>
                           {resolution.hint && (
-                            <p className="mt-2 text-sm leading-6 text-white/64">{resolution.hint}</p>
+                            <p className="mt-2 text-sm leading-6 text-white/64">
+                              {renderStoryMathText(resolution.hint)}
+                            </p>
                           )}
 
                           {resolution.nextProgress && (
